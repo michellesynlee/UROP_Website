@@ -1,0 +1,56 @@
+<!-- this is the initial layout page, and includes the navbar that stays consistent throughout the different pages. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Movers Resource Hub</title>
+  <link rel="stylesheet" href="static/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="top-row">
+      <div class="logo-title">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" />
+        <div class="site-text">
+          <h1>Community Movers Resource Hub</h1>
+          <p>Center for community stories and resources.</p>
+        </div>
+      </div>
+      <div class="search">
+        <label for="search">Search</label>
+        <input type="text" id="search" placeholder="Ex: Parkinsons" />
+      </div>
+    </div>
+
+    <nav class="bottom-row">
+      <a href="#">
+        <span class="long-text">Connecting through Movement</span>
+        <span class="short-text">Movement</span> <!-- text changes to these when the browser becomes more narrow-->
+      </a>
+      <a href="#">
+        <span class="long-text">Connecting through Spirit</span>
+        <span class="short-text">Spirit</span>
+      </a>
+      <a href="#">
+        <span class="long-text">Connecting our Youth</span>
+        <span class="short-text">Youth</span>
+      </a>
+      <a href="#">
+        <span class="long-text">Connecting through Research</span>
+        <span class="short-text">Research</span>
+      </a>
+      <a href="#">
+        <span class="long-text">More About Brain Health</span>
+        <span class="short-text">Brain Health</span>
+      </a>
+    </nav>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

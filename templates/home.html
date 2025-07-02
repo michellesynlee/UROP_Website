@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <section class="home-banner">
+    <img src="{{ url_for('static', filename='home-banner.jpg') }}" alt="Community Image" class="banner-img">
+
+    <div class="blurb-box">
+        <p><strong>Welcome! We are a community health hub for Washington Heights & Harlem, powered by your stories and lived experiences.</strong></p>
+      
+        <p class="get-started">
+          <strong>Get Started Here:</strong>
+          <select id="dropdown">
+            <option disabled selected>Select...</option>
+            <option>Events</option>
+            <option>Resources</option>
+            <option>Get Involved</option>
+          </select>
+        </p>
+    </div>
+  </section>
+{% endblock %}

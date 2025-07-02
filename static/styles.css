@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: white;
+}
+  
+/* Top navbar row */
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+  
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+  
+.logo {
+    height: 75px;
+    margin-right: 12px;
+}
+  
+.site-text h1 {
+    margin: 0.5;
+    font-size:30px;
+}
+  
+.site-text p {
+    margin: 0;
+    font-size: 15px;
+    color: rgb(51, 50, 50);
+}
+  
+/* Search */
+.search input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+    .search {
+      display: none;
+    }
+}
+  
+/* Bottom navbar row */
+.bottom-row {
+    background-color: #6a4c93;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-around;  /* spaces text out evenly */
+    flex-wrap: wrap;
+    flex-wrap: nowrap; /* prevents wrapping when browser is narrow */
+    overflow-x: auto; 
+}
+  
+.bottom-row a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;   
+    flex-shrink: 1; /* allows links to shrink a bit */
+    white-space: nowrap;
+}
+
+.long-text {
+    display: inline;
+ }
+  
+.short-text {
+    display: none;
+ }
+  
+/* on smaller screens, hide long text and show short versions */
+@media (max-width: 900px) {
+    .long-text {
+    display: none;
+    }
+    
+    .short-text {
+        display: inline;
+    }
+}
+
+/* -------------- Home page -------------- */
+.home-banner {
+    position: relative;
+    width: 100%;
+    height: 180px; /* Thin banner height */
+    overflow: visible;
+}
+  
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area nicely */
+}
+  
+.blurb-box {
+    position: absolute;
+    bottom: -70px;  /* Adjust based on how low you want it to "sit" on the page */
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 20px 20px 20px 40px; 
+    border-radius: 35px;
+    box-shadow: 0 12px 20px rgba(56, 23, 81, 0.586);
+    max-width: 800px;
+    width: 85%;
+    text-align: left;
+    font-size: 18px;
+}
+
+/*makes blurb box disappear when browser is narrower
+@media (max-width: 800px) { 
+    .blurb-box {
+      display: none;
+    }
+}
+*/
+
+@media (max-width: 800px) {
+    .blurb-box {
+        width: 80%;
+        padding: 13px;
+        font-size: 0.75rem;
+    }
+  
+    .get-started {
+        font-size: 0.9rem; 
+    }
+
+    .get-started select {
+        font-size: 0.6rem;
+    }
+}
+
+.get-started {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-top: 20px;
+}
+  
+.get-started select {
+    font-size: 1.1rem;
+    margin-left: 10px;
+    padding: 6px 12px;
+    border-radius: 13px;
+    width: 60%;
+    height: 10%;
+    color: gray;
+    background-color: rgba(211, 211, 211, 0.327);
+}
