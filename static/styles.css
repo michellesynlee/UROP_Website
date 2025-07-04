@@ -1,9 +1,9 @@
 body {
     margin: 0;
-    font-family: sans-serif;
     background-color: white;
+    font-family: 'Manrope', sans-serif;
 }
-  
+ 
 /* Top navbar row */
 .top-row {
     display: flex;
@@ -18,30 +18,47 @@ body {
 }
   
 .logo {
-    height: 75px;
-    margin-right: 12px;
+    height: 78px;
+    margin-right: 13px;
 }
   
 .site-text h1 {
     margin: 0.5;
-    font-size:30px;
+    font-size: 30px;
 }
   
 .site-text p {
     margin: 0;
     font-size: 15px;
-    color: rgb(51, 50, 50);
+    color: rgb(15, 14, 14);
 }
   
 /* Search */
-.search input {
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+.search-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-right: 5px;
+}
+  
+.search-wrapper input {
+    padding: 10px 40px 10px 12px; /* extra right padding for icon space */
+    font-size: 1rem;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+  
+.search-wrapper .search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    pointer-events: none; /* so clicks go to the input */
 }
 
 @media (max-width: 800px) {
-    .search {
+    .search-wrapper {
       display: none;
     }
 }
@@ -89,7 +106,7 @@ body {
 .home-banner {
     position: relative;
     width: 100%;
-    height: 180px; /* Thin banner height */
+    height: 190px; /* Thin banner height */
     overflow: visible;
 }
   
@@ -115,11 +132,6 @@ body {
 }
 
 /*makes blurb box disappear when browser is narrower
-@media (max-width: 800px) { 
-    .blurb-box {
-      display: none;
-    }
-}
 */
 
 @media (max-width: 800px) {
@@ -153,4 +165,151 @@ body {
     height: 10%;
     color: gray;
     background-color: rgba(211, 211, 211, 0.327);
+}
+
+/*that light purple line*/
+.purple-line {
+    height: 20px; /* adjust thickness */
+    background-color: #dad4ef;
+    width: 100%;
+}
+
+/*local story*/
+
+.local-story-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 150px 80px 10px;
+}
+  
+.local-story {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    max-width: 1000px;
+    width: 100%;
+    flex-wrap: nowrap; /* Prevents image and text from stacking */
+}
+  
+.story-img-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px; /* Matches .img-offset top */
+  }
+  
+.img-offset {
+    position: absolute;
+    top: 15px;
+    left: -15px;
+    width: 100%;
+    height: 100%;
+    background-color: #dad4ef; /* light purple */
+    z-index: 0;
+    border-radius: 0; /* Optional: match if image has border-radius */
+}
+  
+.story-img {
+    position: relative;
+    z-index: 1;
+    width: 340px;
+    height: auto;
+    display: block;
+}
+  
+.story-text {
+    flex: 1;
+    min-width: 0; /* Ensures it doesn't overflow */
+}
+  
+.story-text h2 {
+    font-size: 2.0rem;
+    font-weight: bold;
+}
+  
+.story-text p {
+    font-size: 1rem;
+    color: #2c2c2c;
+}
+  
+.learn-more-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #9ce37d;
+    padding: 8px 14px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+
+/* stacks image on top when screen is narrow */
+@media (max-width: 768px) {
+    .local-story {
+      flex-direction: column;
+      align-items: center; /* optional: center image/text */
+      text-align: center;  /* optional: center text */
+    }
+  
+    .story-img {
+      width: 100%;  /* responsive width */
+      max-width: 400px; /* optional max width */
+      height: auto;
+    }
+  
+    .story-text {
+      width: 100%;
+    }
+}
+
+/*events calendar section*/
+
+.events-section {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .events-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .events-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* ensures responsiveness */
+  }
+  
+  .event-card {
+    background-color: #ffffff;
+    padding: 25px;
+    width: 280px;
+    border-radius: 22px;
+    box-shadow: 0 2px 8px #694c9385;
+    text-align: left;
+  }
+  
+  .event-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+  
+  .event-card a {
+    text-decoration: underline;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .view-calendar-wrapper {
+    margin-top: 40px;
+  }
+  
+.view-calendar-btn {
+    padding: 12px 24px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #9ce37d;
 }

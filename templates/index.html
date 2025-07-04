@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
   <title>Community Movers Resource Hub</title>
   <link rel="stylesheet" href="static/styles.css" />
 </head>
@@ -14,12 +16,12 @@
         <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" />
         <div class="site-text">
           <h1>Community Movers Resource Hub</h1>
-          <p>Center for community stories and resources.</p>
+          <p>A center for community stories and resources for the Washington Heights and Harlem area.</p>
         </div>
       </div>
-      <div class="search">
-        <label for="search">Search</label>
-        <input type="text" id="search" placeholder="Ex: Parkinsons" />
+      <div class="search-wrapper">
+        <input type="text" placeholder="" />
+        <img src="static/searchicon.png" alt="Search" class="search-icon" />
       </div>
     </div>
 
