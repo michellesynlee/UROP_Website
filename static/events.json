@@ -1,0 +1,134 @@
+[
+  {
+    "id": "connecting-through-art",
+    "title": "Connecting Through Art (APDA x Columbia)",
+    "summary": "Monthly creative arts group for people impacted by Parkinson’s disease. No experience required; supplies provided. In-person and virtual options.",
+    "description": "Each month explores a different medium—watercolor, acrylics, weaving, sculpture, collage, and more. The program supports mood, connection, and fine motor/visual-cognitive skills.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "last",
+      "weekday": "FR"
+    },
+    "time": {
+      "start": "14:00",
+      "end": "16:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "In-person & Virtual",
+      "name": "Columbia Community Partnership for Health",
+      "address": "390 Ft. Washington Ave (between 177th & 178th St), New York, NY"
+    },
+    "registration": {
+      "phone": "929-695-0282",
+      "contactName": "Erika Adelman",
+      "email": "era2142@cumc.columbia.edu",
+      "note": "Zoom link provided upon registration. Space is limited."
+    },
+    "cta": {
+      "label": "Register",
+      "href": "mailto:era2142@cumc.columbia.edu"
+    },
+    "tags": ["Parkinson’s", "Art", "Community", "Recurring"]
+  },
+  {
+    "id": "disability-insurance-planning",
+    "title": "Planning Ahead: Disability, Insurance & Resources",
+    "summary": "Monthly virtual workshop for families affected by neurological illness. Learn about disability applications, transportation options, and insurance coverage.",
+    "description": "If you’re wondering whether your insurance covers transportation, if you should apply for disability, or how to plan ahead, you are not alone. This monthly workshop, led by a licensed social worker specializing in neurology, covers key resources for families managing neurological illness.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "second",
+      "weekday": "WE"
+    },
+    "time": {
+      "start": "13:00",
+      "end": "14:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual",
+      "name": "Zoom",
+      "meetingId": "969 2820 4317"
+    },
+    "registration": {
+      "note": "Visit our events page for more information."
+    },
+    "cta": {
+      "label": "Visit Events Page",
+      "href": "#"
+    },
+    "tags": ["Disability", "Insurance", "Neurology", "Workshop", "Recurring"]
+  },
+  {
+    "id": "neurology-grief-support",
+    "title": "Grief Support Group for Neurological Disease Loss",
+    "summary": "Biweekly online support group for those who have lost a loved one to a chronic neurological illness. Open to Columbia caregivers.",
+    "description": "This biweekly group offers support for those grieving the loss of a loved one to a brain cancer or chronic neurological disease like ALS or Parkinson’s. Sessions cover grief-related topics and ways to honor their memory. Participants must commit to at least 6 of 9 sessions.",
+    "recurrence": {
+      "type": "monthly",
+      "which": ["second", "fourth"],
+      "weekday": "MO"
+    },
+    "time": {
+      "start": "12:00",
+      "end": "13:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "virtual",
+      "name": "Zoom"
+    },
+    "eligibility": {
+      "requirements": [
+        "Caregivers of those who had a chronic neurological disease treated at Columbia",
+        "Loss occurred 1–12 months before joining",
+        "Commitment to 6 out of 9 sessions"
+      ]
+    },
+    "registration": {
+      "note": "Registration is required. A social worker will contact you after submission."
+    },
+    "facilitators": [
+      "Nicole Ross, LMSW, OSW-C – Neuro-Oncology Social Worker",
+      "Linda Golding, MA, BCC – Multifaith Chaplain"
+    ],
+    "cta": {
+      "label": "Register",
+      "href": "#"
+    },
+    "tags": ["Grief", "Caregivers", "Neurology", "Support", "Recurring"]
+  },
+  {
+    "id": "speech-for-pd",
+    "title": "Speech for PD",
+    "summary": "Free, online speech classes for people with Parkinson’s and their care partners, led by Dr. Gemma Moya-Galé at Columbia University.",
+    "description": "Speech for PD is a university- and community-based program offering free online group speech classes to improve communication and social connection for people with Parkinson’s disease. Founded by Dr. Gemma Moya-Galé in 2019 and supported by the Parkinson’s Foundation.",
+    "recurrence": {
+      "type": "weekly",
+      "days": ["TU", "TH"]
+    },
+    "time": {
+      "start": "11:15",
+      "end": "12:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual",
+      "name": "Zoom"
+    },
+    "contact": {
+      "name": "Dr. Gemma Moya-Galé",
+      "title": "PhD, CCC-SLP, Teachers College, Columbia University",
+      "phone": "212-678-3323",
+      "email": "gm2446@tc.columbia.edu"
+    },
+    "values": "Speech for PD is an inclusive and diverse community that empowers people with PD and promotes social connection.",
+    "goals": "Our goal is to improve quality of life through voice strengthening and social communication in a supportive space.",
+    "cta": {
+      "label": "Contact",
+      "href": "mailto:gm2446@tc.columbia.edu"
+    },
+    "tags": ["Parkinson’s", "Speech", "Support", "Recurring", "Communication"]
+  }
+]

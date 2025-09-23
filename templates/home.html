@@ -10,10 +10,10 @@
         <p class="get-started">
           <strong>Get Started Here:</strong>
           <select id="dropdown">
-            <option disabled selected>Select...</option>
-            <option>Events</option>
-            <option>Resources</option>
-            <option>Get Involved</option>
+            <option disabled selected>I have a question about...</option>
+            <option>Upcoming Events</option>
+            <option>Contact Information</option>
+            <option>Health & Wellness Resources</option>
           </select>
         </p>
     </div>
@@ -37,6 +37,7 @@
     </section>
   </div>
 
+  <!--
   <div class="events-section">
     <h2 class="events-title">Upcoming Events</h2>
   
@@ -62,10 +63,24 @@
         <a href="#">Learn more >></a>
       </div>
     </div>
-  
-    <div class="view-calendar-wrapper">
-      <button class="view-calendar-btn">View Calendar</button>
+  -->
+
+    <div class="events-section">
+      <h2 class="events-title">Upcoming Events</h2>
+
+      <!-- JS will inject cards here -->
+      <div id="events-container" class="events-container" aria-live="polite"></div>
+
+      <div class="view-calendar-wrapper">
+        <button class="view-calendar-btn">View Calendar</button>
+      </div>
     </div>
+    
+    <!--
+    <div class="view-calendar-wrapper">
+        <button class="view-calendar-btn">View Calendar</button>
+    </div>
+    -->
   </div>
 
 {% endblock %}

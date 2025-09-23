@@ -1,0 +1,99 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!-- Hero banner -->
+<section class="hero hero--movement" aria-label="Connecting through Youth">
+  <img
+    src="{{ url_for('static', filename='movement.jpg') }}"
+    alt="Community members enjoying youth activities together"
+    loading="eager"
+  >
+</section>
+
+<!-- Overlapping white card -->
+<section class="page-card">
+  <div class="page-card__inner" id="movement-card">
+
+    <h1 class="page-title">Connecting Our Youth</h1>
+    <p class="why-meditation">
+      Activities and resources to help kids and families stay active and connected!
+    </p>
+
+    <h1> Featured Event: </h1>
+
+      <!-- Featured Event-->
+    <section class="featured-event">
+      <div class="featured-event__inner">
+        <!-- Left side: image -->
+        <div class="featured-event__image-wrapper">
+          <img 
+            src="{{ url_for('static', filename='children.jpg') }}" 
+            alt="Flyer for the featured youth community event" 
+            class="featured-event__image"
+          >
+        </div>
+
+        <!-- Right side: content -->
+        <div class="featured-event__content">
+          <h2 class="featured-event__title">Sunday Funday</h2>
+          <p class="featured-event__description">
+            Sunday Funday is a free social and recreational program for children ages 5-16 
+            with Autism Spectrum Disorders (ASD) who are not eligible, or who are awaiting approval,
+            for services funded by the Office for People With Developmental Disabilities (OPWDD) and/or other state agencies. 
+          </p>
+          <ul class="featured-event__meta">
+            <li><strong>Date:</strong> Every Sunday</li>
+            <li><strong>Location:</strong> YM&YWHA — Washington Heights & Inwood </li>
+          </ul>
+          <a class="resource-btn featured-event__btn" href="https://www.ywhi.org/elementary/inclusion-sunday-funday/" target="_blank">
+            View Event
+          </a>
+        </div>
+      </div>
+    </section>
+
+<br>
+
+    <h1> All Events: </h1>
+
+    <!-- Resource Sections -->
+    <div class="resource-sections">
+
+      <!-- Learn About the Brain -->
+      <div class="resource-card">
+        <img src="{{ url_for('static', filename='aboutthebrain.jpg') }}" alt="Brain icon" class="resource-icon">
+        <h2> Learn About the Brain</h2>
+        <p>Fun, interactive activities and resources to explore how the brain works.</p>
+        <div class="resource-links">
+          <a class="resource-btn" href="https://dana.org/resources?intended-use=Brain%20Awareness%20Week" target="_blank">Hack Your Brain (Dana Foundation)</a>
+          <a class="resource-btn" href="https://centerforbrainhealth.org/about-us/youth-and-family-resources" target="_blank">Youth & Family Resources (BrainHealth)</a>
+        </div>
+      </div>
+
+      <!-- Community Opportunities -->
+      <div class="resource-card">
+        <img src="{{ url_for('static', filename='kidcommunity.jpg') }}" alt="Community icon" class="resource-icon">
+        <h2> Community Opportunities</h2>
+        <p>Free programs and activities to help children grow and connect with others.</p>
+        <div class="resource-links">
+          <a class="resource-btn" href="https://www.ywhi.org/elementary/inclusion-sunday-funday/" target="_blank">Sunday Funday (YWHA)</a>
+        </div>
+      </div>
+
+      <!-- Health & Safety -->
+      <div class="resource-card">
+        <img src="{{ url_for('static', filename='kidsafety.jpg') }}" alt="Health icon" class="resource-icon">
+        <h2> Health & Safety</h2>
+        <p>Helpful guides for parents to keep kids safe and supported.</p>
+        <div class="resource-links">
+          <a class="resource-btn" href="https://kidshealth.org/en/parents/concussions.html" target="_blank">Concussion Guide for Kids</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<script src="{{ url_for('static', filename='spirit.js') }}" defer></script>
+{% endblock %}

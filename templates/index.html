@@ -12,13 +12,15 @@
 <body>
   <header class="navbar">
     <div class="top-row">
-      <div class="logo-title">
+
+      <a href="{{ url_for('home') }}" class="logo-title" aria-label="Home">
         <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" />
         <div class="site-text">
           <h1>Community Movers Resource Hub</h1>
           <p>A center for community stories and resources for the Washington Heights and Harlem area.</p>
         </div>
-      </div>
+      </a>
+
       <div class="search-wrapper">
         <input type="text" placeholder="" />
         <img src="static/searchicon.png" alt="Search" class="search-icon" />
@@ -26,19 +28,19 @@
     </div>
 
     <nav class="bottom-row">
-      <a href="#">
+      <a href="{{ url_for('movement') }}">
         <span class="long-text">Connecting through Movement</span>
-        <span class="short-text">Movement</span> <!-- text changes to these when the browser becomes more narrow-->
+        <span class="short-text">Movement</span>
       </a>
-      <a href="#">
+      <a href="{{ url_for('spirit') }}">
         <span class="long-text">Connecting through Spirit</span>
         <span class="short-text">Spirit</span>
       </a>
-      <a href="#">
+      <a href="{{ url_for('youth') }}">
         <span class="long-text">Connecting our Youth</span>
         <span class="short-text">Youth</span>
       </a>
-      <a href="#">
+      <a href="{{ url_for('research') }}">
         <span class="long-text">Connecting through Research</span>
         <span class="short-text">Research</span>
       </a>
@@ -52,7 +54,10 @@
     {% block content %}
     {% endblock %}
   </main>
-
-  <script src="script.js"></script>
+  <script>
+    window.EVENTS_JSON_URL = "{{ url_for('static', filename='events.json') }}";
+  </script>
+  <script src="{{ url_for('static', filename='events.js') }}" defer></script>
+  <!--<script src="script.js"></script>-->
 </body>
 </html>

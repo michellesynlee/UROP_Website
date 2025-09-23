@@ -4,6 +4,17 @@ body {
     font-family: 'Manrope', sans-serif;
 }
  
+.navbar a.logo-title {
+  color: inherit;
+  text-decoration: none;
+}
+.navbar a.logo-title:hover,
+.navbar a.logo-title:visited,
+.navbar a.logo-title:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Top navbar row */
 .top-row {
     display: flex;
@@ -18,18 +29,18 @@ body {
 }
   
 .logo {
-    height: 78px;
+    height: 85px;
     margin-right: 13px;
 }
   
 .site-text h1 {
     margin: 0.5;
-    font-size: 30px;
+    font-size: 37px;
 }
   
 .site-text p {
     margin: 0;
-    font-size: 15px;
+    font-size: 20px;
     color: rgb(15, 14, 14);
 }
   
@@ -42,7 +53,7 @@ body {
   
 .search-wrapper input {
     padding: 10px 40px 10px 12px; /* extra right padding for icon space */
-    font-size: 1rem;
+    font-size: 1.2rem;
     border: 1px solid #000000;
     border-radius: 10px;
 }
@@ -77,7 +88,7 @@ body {
 .bottom-row a {
     color: white;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;   
     flex-shrink: 1; /* allows links to shrink a bit */
     white-space: nowrap;
@@ -125,7 +136,7 @@ body {
     padding: 20px 20px 20px 40px; 
     border-radius: 35px;
     box-shadow: 0 12px 20px rgba(56, 23, 81, 0.586);
-    max-width: 800px;
+    max-width: 850px;
     width: 85%;
     text-align: left;
     font-size: 18px;
@@ -138,21 +149,21 @@ body {
     .blurb-box {
         width: 80%;
         padding: 13px;
-        font-size: 0.75rem;
+        font-size: 1.0rem;
     }
   
     .get-started {
-        font-size: 0.9rem; 
+        font-size: 1.0rem; 
     }
 
     .get-started select {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 }
 
 .get-started {
     text-align: left;
-    font-size: 1.8rem;
+    font-size: 2.0rem;
     margin-top: 20px;
 }
   
@@ -194,12 +205,12 @@ body {
 .story-img-container {
     position: relative;
     display: inline-block;
-    margin-top: 15px; /* Matches .img-offset top */
+    margin-top: 40px; /* Matches .img-offset top */
   }
   
 .img-offset {
     position: absolute;
-    top: 15px;
+    top: 10px;
     left: -15px;
     width: 100%;
     height: 100%;
@@ -211,7 +222,7 @@ body {
 .story-img {
     position: relative;
     z-index: 1;
-    width: 340px;
+    width: 400px;
     height: auto;
     display: block;
 }
@@ -222,12 +233,12 @@ body {
 }
   
 .story-text h2 {
-    font-size: 2.0rem;
+    font-size: 2.3rem;
     font-weight: bold;
 }
   
 .story-text p {
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #2c2c2c;
 }
   
@@ -269,14 +280,14 @@ body {
   }
   
   .events-title {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     margin-bottom: 40px;
   }
   
   .events-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 70px;
     flex-wrap: wrap; /* ensures responsiveness */
   }
   
@@ -310,6 +321,673 @@ body {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.4rem;
     background-color: #9ce37d;
+}
+
+/* ------------ Movement page : BASIC CARD / BACKGROUND STUFF.------------ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: clamp(200px, 32vw, 340px);  /* 200 > 190, so the card won’t poke out */
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.page-card {
+  position: relative;
+  z-index: 1;                /* makes it so that the white card sits above the hero */
+  width: 92%; 
+  margin: -190px auto 56px; /* overlap the white card over the image */
+  padding: 0 10px;           /* side gutters on small screens */
+}
+.page-card__inner {
+  background: #fff;
+  /*border-radius: 18px;*/
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: clamp(20px, 3.2vw, 56px);
+  min-height: 1060px;   /* LENGTH of the card */
+}
+
+.page-card .lead {
+  color: #444;
+  font-size: clamp(1rem, 0.8vw + 0.9rem, 1.25rem);
+  margin: 8px 0 8px;
+  max-width: 68ch;
+  line-height: 1.95;       /* a bit more space between lines */
+  letter-spacing: 0.01em;  /*subtle tracking for readability */
+}
+
+.page-title {
+  font-weight: 800;
+  line-height: 1.18;       /*slightly more leading for multi-line titles */
+  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  margin: 0 0 8px;
+  letter-spacing: 0.005em; /*tiny tracking to open it up */
+}
+
+/* tightens top spacing if your navbar has extra margin below */
+main { display: block; }
+
+/* -------------------- BUBBLESSSSSS board -------------------- */
+:root{
+  --bub-lg: clamp(220px, 26vw, 380px);
+  --bub-sm: clamp(130px, 18vw, 240px);
+  --bub-gap: clamp(8px, 2vw, 18px);
+}
+
+/*
+.bubble-stage{
+  position: relative;
+  width: clamp(320px, 92%, 1100px);
+  height: clamp(320px, 48vw, 520px);
+  margin: 4px auto 14px;
+}
+*/
+
+
+.bubble{
+  font-family: 'Inter', sans-serif;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;            /* ← stack title above list */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
+  border: 0;
+  cursor: pointer;
+  transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+  outline: none;
+}
+
+/* title + links */
+.bubble .bubble-title{
+  max-width: 80%;
+  margin-bottom: 8px;
+  font-size: clamp(1rem, 1.6vw + 0.1rem, 1.92rem); /* affects the size of the text in the bubbles before they click */
+}
+
+/* animate the change of text size from big to small */
+.bubble .bubble-title { transition: font-size .2s ease; }
+
+/* when clicked (active), shrinks the text */
+.bubble.active .bubble-title {
+  font-size: 0.85em;   /* tweak: 0.85–0.95em */
+}
+
+.bubble .links{
+  display: none;                     /* shown when .active */
+  margin: 10px 0 0;
+  width: min(86%, 20ch); 
+  text-align: left;
+  list-style: disc;                  /* real bullets */
+  padding-left: 1.1em;               /* space for bullets */
+  font-weight: 600;
+}
+.bubble .links li{ margin: 6px 0; }
+.bubble .links a{
+  color: #111;                       /* ← not green */
+  text-decoration: none;
+  font-weight: 600;
+}
+.bubble .links a:hover,
+.bubble .links a:focus{ text-decoration: underline; }
+
+/* sizes */
+.bubble--lg{ width: var(--bub-lg); height: var(--bub-lg); }
+.bubble--sm{ width: var(--bub-sm); height: var(--bub-sm); }
+
+/* colors */
+.bubble--purple{ background:#b8b8e4; }
+.bubble--green{  background:#a4d7dd; }
+.bubble--blue{   background:#b0c8f4; }
+.bubble--teal{   background:#97dccb; }
+
+
+/* ---- layout: evenly spaced, centered 
+
+.bubble-stage{
+  position: relative;
+  width: clamp(320px, 92%, 1100px);
+  height: clamp(360px, 50vw, 520px);
+  margin: 5px auto 6px;
+
+  display: flex;
+  align-items: center;           
+  justify-content: space-evenly; 
+  gap: clamp(16px, 4vw, 40px);
+} 
+
+----*/
+
+/* Wrap border styling for the bubble section */
+.bubble-stage {
+  position: relative;
+  width: clamp(320px, 92%, 1100px);
+  height: clamp(360px, 50vw, 420px);
+  margin: 30px auto 30px; /* outside spacing*/ 
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: clamp(16px, 4vw, 40px);
+
+  /* New border styling */
+  border: 3px solid #dedddf;         
+  border-radius: 20px;            /* rounded corners */
+  padding: clamp(24px, 4vw, 40px) clamp(12px, 2vw, 24px); /* spacing inside */
+  background-color: #ffffff;     
+}
+
+
+/* bubbles are flex items (not absolutely positioned) */
+.bubble {
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  box-shadow: 0 10px 40px rgba(0,0,0,.12), 
+              0 4px 8px rgba(0,0,0,.46);
+  border: 0;
+  cursor: pointer;
+  transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+  outline: none;
+}
+
+/* order across the row */
+.bubble--green{ order: 1; }
+.bubble--lg   { order: 2; }
+.bubble--blue { order: 3; }
+.bubble--teal { order: 4; }
+
+/* vertical staggering (tweak to taste) */
+.bubble--green{ margin-top: -6vw; }   
+.bubble--lg   { margin-top: -2vw; }   
+.bubble--blue { margin-top:  3vw; }   
+.bubble--teal { margin-top: -7vw; }   
+
+/* interactions */
+.bubble:hover{ transform: scale(1.06); }
+.bubble.active{ transform: scale(1.22); z-index: 1; }
+.bubble-stage.has-active .bubble:not(.active){ transform: scale(0.9); opacity: .65; }
+
+
+/* show links + condense title when active */
+.bubble.active .links{ display:block; }
+.bubble.active .bubble-title{ max-width: 86%; }
+
+/* hide the page title/lead when something is active */
+#movement-card.has-active .page-title,
+#movement-card.has-active .page-lead{
+  display: none;
+}
+
+/* small screens: hide the bubbles, show a simple list */
+.bubble-fallback{ display:none; margin-top: 10px; }
+@media (max-width: 860px){
+  .bubble-stage{ display:none; }
+  .bubble-fallback{ display:block; }
+}
+
+/* ------------ End of bubbles css, start of rest of movement.html css -------------- */ 
+
+.stretch-guide{
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);          /* space between image and text */
+  margin-top: clamp(8px, 1.2vw, 16px);  /* small top margin by default */
+}
+
+.bubble-stage + .stretch-guide{
+  margin-top: clamp(4px, 1vw, 6px);    /* reduces the space below the bubbles */
+}
+
+/* image - half the white card */
+.stretching-img{
+  flex: 0 1 38%;     /* reserve ~48% of the row for the image */
+  max-width: 38%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* keeps it neat if you later cap height */
+  border-radius: 10px;
+}
+.stretch-guide > div{
+  flex: 1 1 62%;     /* text takes the remaining space */
+}
+
+/* stretching heading + link spacing inside the stretch guide */
+.stretch-guide .page-title{
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+.stretch-guide .page-lead{
+  margin: 0;                             /* remove extra gap under the heading */
+  line-height: 1.6;
+}
+
+/* responsive: stack vertically on small screens */
+@media (max-width: 700px){
+  .stretch-guide{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .stretching-img{
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* attribution line */
+.source-note {
+  margin-top: 0px;
+  font-size: 0.65rem;
+  color: #9ea2a9;           /* gray text */
+}
+
+/* Make the link gray too (not blue) */
+.source-note a {
+  color: inherit;           /* inherits the gray */
+  text-decoration: underline;
+}
+
+/* ----- spirit font/other -------*/
+/* Overall Text Size Tweaks */
+.page-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.5em;
+}
+
+.lead.page-lead {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+.resource-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75em;
+  color: #222;
+}
+
+.resource-list {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  list-style-type: disc;
+  padding-left: 1.5em;
+  color: #333;
+}
+
+.resource-list strong {
+  font-weight: 700;
+}
+
+.resource-list a {
+  font-size: 1.25rem;
+  color: #005bac;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.resource-list a:hover {
+  color: #003e7d;
+  text-decoration: none;
+}
+
+/* Faith Card Flip Layout */
+.faith-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 280px;
+  height: 320px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.flip-card-front .faith-caption {
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.flip-card-back {
+  background-color: #f7f7f7;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+}
+
+.flip-card-back h3 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.flip-card-back a {
+  display: block;
+  margin: 8px 0;
+  color: #005bac;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.flip-card-back a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive video */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.why-meditation {
+  font-size: 1.55rem; /* makes text larger */
+  line-height: 1.7;   /* improves readability */
+}
+
+/* ------- spirit faith -------- */
+
+.faith-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 350px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.flip-card-front .faith-caption {
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.flip-card-back {
+  background-color: #f0f0f0;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+}
+
+.flip-card-back h3 {
+  margin-bottom: 10px;
+  font-size: 2.0rem;
+}
+
+.flip-card-back a {
+  display: block;
+  margin: 6px 0;
+  color: #005bac;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.flip-card-back a:hover {
+  text-decoration: underline;
+}
+
+.centered-section-title {
+  text-align: center;
+  font-size: 1.7=85rem;
+  font-weight: 700;
+  color: #222;
+
+  /* Add vertical spacing */
+  margin-top: 48px;     /* space above the title */
+  margin-bottom: 32px;  /* space below the title */
+}
+
+/* ----------------------------- Youth page -------------------------------- */ 
+
+  .resource-sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 2rem;
+  }
+
+  .resource-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  .resource-card h2 {
+    font-size: 1.9rem;
+    margin: 1rem 0;
+  }
+
+  .resource-card p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .resource-icon { /*image size*/
+    width: 290px;
+    height: 230px;
+    margin-bottom: 12px;
+  }
+
+  .resource-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .resource-btn {
+    display: inline-block;
+    background: #6a4c93;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .resource-btn:hover {
+    background: #976fce;
+  }
+
+  /* Larger cards for seniors */
+  @media (min-width: 768px) {
+    .resource-sections {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .resource-card p {
+      font-size: 1.1rem;
+    }
+    .resource-btn {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* featured event */
+
+  .featured-event {
+  margin: 2rem 0;
+}
+
+.featured-event__inner {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #e2e8f0; /* outline */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Two-column layout on bigger screens */
+@media (min-width: 768px) {
+  .featured-event__inner {
+    flex-direction: row;
+  }
+}
+
+.featured-event__image-wrapper {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+.featured-event__image {
+  width: 75%;
+  height: 75%;
+  object-fit: cover;
+}
+
+.featured-event__content {
+  flex: 2;
+  padding: 2rem;
+}
+
+.featured-event__title {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.featured-event__description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.featured-event__meta {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.featured-event__meta li {
+  margin: 0.25rem 0;
+}
+
+.featured-event__btn {
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
 }

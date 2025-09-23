@@ -1,0 +1,159 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!-- Hero banner -->
+<section class="hero hero--movement" aria-label="Connecting through Spirit">
+  <img
+    src="{{ url_for('static', filename='spirit.jpg') }}"
+    alt="Community members enjoying faith together"
+    loading="lazy"
+  >
+</section>
+
+<!-- Overlapping white card -->
+<section class="page-card">
+  <div class="page-card__inner" id="spirit-card">
+
+    <h1 class="page-title">Connecting Through Spirit</h1>
+    <p class="why-meditation">
+      Resources to support your spiritual well-being. Explore community faith centers and guided meditation practices below.</span>
+    </p>
+
+    <!-- Meditation Intro Paragraph -->
+    <div>
+      <h2 class="why-meditation">Why Meditation & Mindfulness?</h2>
+      <p class="why-meditation">
+        Meditation and mindfulness can help us reduce stress, cope with pain, and improve our focus as we approach the obstacles of our daily lives.
+        For a helpful guide on how to begin meditating and practicing mindfulness, please see the
+        <a href="https://www.mindful.org/how-to-meditate/" target="_blank" rel="noopener">mindful.org guide on How to Meditate</a>.
+      </p>
+    </div>
+
+    <!-- Faith-Based Community Resources -->
+    <div class="resource-section">
+    <h2 class="centered-section-title">Local Faith Communities</h2>
+    <div class="faith-grid">
+    
+    <!-- Church Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="{{ url_for('static', filename='church.jpg') }}" alt="Local Church">
+          <p class="faith-caption">Local Church</p>
+        </div>
+        <div class="flip-card-back">
+          <h3>Local Church</h3>
+          <a href="https://www.riversidenyc.org/" target="_blank">Visit Riverside Church</a><br>
+          <a href="#">Service Times</a><br>
+          <a href="#">Contact Info</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jewish Temple Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="{{ url_for('static', filename='jewishtemple.png') }}" alt="Local Jewish Temple">
+          <p class="faith-caption">Jewish Temple</p>
+        </div>
+        <div class="flip-card-back">
+          <h3>Jewish Temple</h3>
+          <a href="https://www.jtsa.edu/" target="_blank">Visit Jewish Theological Seminary</a>
+          <a href="#">Shabbat Services</a><br>
+          <a href="#">Contact Info</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mosque Card -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="{{ url_for('static', filename='mosque.jpg') }}" alt="Local Mosque">
+          <p class="faith-caption">Local Mosque</p>
+        </div>
+        <div class="flip-card-back">
+          <h3>Local Mosque</h3>
+          <a href="https://www.icnyu.org/" target="_blank">Visit Islamic Center of NYU</a>
+          <a href="#">Prayer Times</a><br>
+          <a href="#">Contact Info</a>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+   <!-- Meditation & Mindfulness Resources with Flip Cards -->
+  <div class="resource-section">
+    <h2 class="centered-section-title">Guided Meditation & Mindfulness Practices</h2>
+    <div class="faith-grid">
+
+      <!-- Deep Breathing Card -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{ url_for('static', filename='oren.png') }}" alt="Deep Breathing">
+            <p class="faith-caption">Deep Breathing</p>
+          </div>
+          <div class="flip-card-back">
+            <h3>Deep Breathing</h3>
+            <p>with Dr. Oren Messeri (3 min)</p>
+            <a href="https://drive.google.com/file/d/14zlmbcwhaobj_D2MUWNEtrguPbFuf2nA/view" target="_blank" rel="noopener">Listen Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restorative Breath Meditation Card -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{ url_for('static', filename='erinengle.jpg') }}" alt="Restorative Meditation">
+            <p class="faith-caption">Restorative Meditation</p>
+          </div>
+          <div class="flip-card-back">
+            <h3>Restorative Meditation</h3>
+            <p>with Dr. Erin Engle (9 min)</p>
+            <a href="https://drive.google.com/file/d/1Hujj8MJ3HMQErR6hqCQqwhO8GYQg44Wb/view" target="_blank" rel="noopener">Listen Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your Safe Place Card -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{ url_for('static', filename='erinengle.jpg') }}" alt="Guided Imagery">
+            <p class="faith-caption">Your Safe Place</p>
+          </div>
+          <div class="flip-card-back">
+            <h3>Your Safe Place</h3>
+            <p>with Dr. Erin Engle (12 min)</p>
+            <a href="https://drive.google.com/file/d/14Gfc2Df7n0OUo6VxMFRyqZ-rgfwFm5Tn/view" target="_blank" rel="noopener">Listen Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- Optional Embedded Meditation Video -->
+    <div class="resource-section">
+      <h2>Watch a 5-Minute Meditation</h2>
+      <p class="lead page-lead">Need a quick reset? Try this short guided meditation below:</p>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/inpok4MKVLM" 
+          title="5 Minute Meditation - YouTube" 
+          width="80%" height="315" 
+          frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="{{ url_for('static', filename='spirit.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <!-- Hero banner -->
+  <section class="hero hero--movement" aria-label="Connecting through Movement">
+    <img
+      src="{{ url_for('static', filename='movement.jpg') }}"
+      alt="Community members enjoying movement together"
+      loading="eager"
+    >
+  </section>
+
+  <!-- Overlapping white card -->
+  <section class="page-card">
+
+    <div class="page-card__inner" id="movement-card">
+
+      <h1 class="page-title">Connecting Through Movement</h1>
+        <p class="why-meditation">
+            Guides, research, and resources to help you stay active and connected!
+            <br><span class="sublead">Explore resources in this section:</span>
+        </p>
+
+      <!-- BUBBLES -->
+
+      <div class="bubble-stage" id="bubbleStage" aria-label="Explore topics">
+        <!-- Left small -->
+        <button class="bubble bubble--sm bubble--green" data-topic="community">
+          <span class="bubble-title">Where can I exercise with others?</span>
+          <ul class="links">
+            <li><a href="https://www.ywhi.org/fitness/">YMCA Washington Heights</a></li>
+            <li><a href="https://www.armory.nyc/blog/seniors-aim-high">The Armory</a></li>
+            <li><a href="https://www.movingbrainsfoundation.org/">Moving Brains Foundation</a></li>
+          </ul>
+        </button>
+
+        <!-- Center big -->
+        <button class="bubble bubble--lg bubble--purple" data-topic="getting-started">
+          <span class="bubble-title">What if I need help getting started?</span>
+          <ul class="links">
+            <li><a href="https://www.columbiadoctors.org/health-library/how-to/fitness-increasing-core-stability/">Increase Core Stability</a></li>
+            <li><a href="https://www.columbiadoctors.org/health-library/how-to/getting-started-flexibility-stretching">Getting Started with Flexibility</a></li>
+            <li><a href="https://www.columbiadoctors.org/health-library/special/physical-therapy/">About Physical Therapy</a></li>
+          </ul>
+        </button>
+
+        <!-- Right small (upper) -->
+        <button class="bubble bubble--sm bubble--blue" data-topic="home">
+          <span class="bubble-title">What if I want to work out at home?</span>
+          <ul class="links">
+            <li><a href="https://www.youtube.com/watch?v=BH8Zc4WNWiA">5 Min Walking Workout</a></li>
+            <li><a href="https://www.youtube.com/watch?v=bO6NNfX_1ns">7 Min Yoga</a></li>
+            <li><a href="https://www.youtube.com/watch?v=yRX5GuQBFeM">10 Min Full-Body</a></li>
+            <!-- <li><a href="#">Youtube videos</a></li> -->
+          </ul>
+        </button>
+
+        <!-- Right small (lower) -->
+        <button class="bubble bubble--sm bubble--teal" data-topic="research">
+          <span class="bubble-title">Where can I explore more research?</span>
+          <ul class="links">
+            <li><a href="https://www.michaeljfox.org/news/exercise">Importance of Exercise</a></li>
+            <li><a href="https://www.cdc.gov/physical-activity/features/boost-brain-health.html ">How Exercise Boosts Brain Health</a></li>
+            <li><a href="https://www.health.harvard.edu/mind-and-mood/a-workout-for-your-brain ">Guide to Working Out Your Brain</a></li>
+          </ul>
+        </button>
+      </div>
+
+      <!-- Fallback for very small screens -->
+      <div class="bubble-fallback" aria-label="Topics list">
+        <h3>Explore topics</h3>
+        <ul>
+          <li><a href="#">Getting started</a></li>
+          <li><a href="#">Exercise with others</a></li>
+          <li><a href="#">Home workouts</a></li>
+          <li><a href="#">Research & trials</a></li>
+        </ul>
+      </div>
+
+      <!---End of bubbles-->
+      <!-- Getting started - guided stretching -->
+    <div class="resource-section">
+    <h1 class="page-title">Get Started With Flexibility and Movement</h1>
+    <div class="faith-grid">
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{ url_for('static', filename='stretching.png') }}" alt="Stretching Image">
+            <p class="faith-caption">Learn to Stretch</p>
+          </div>
+          <div class="flip-card-back">
+            <a href="https://www.youtube.com/watch?v=S0YVmpdKuKY" target="_blank">5 Min Full-Body Stretch Video</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{ url_for('static', filename='workout.png') }}" alt="Workout Image">
+            <p class="faith-caption">Learn to Exercise</p>
+          </div>
+          <div class="flip-card-back">
+            <a href="https://www.fitnessblender.com/videos" target="_blank">Free Workout Videos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{ url_for('static', filename='heartrate.jpg') }}" alt="Heart Rate">
+            <p class="faith-caption">Learn Your Heart Rate</p>
+          </div>
+          <div class="flip-card-back">
+            <a href="https://www.youtube.com/watch?v=BSlRvD-CZSo" target="_blank">How to Check Your Heart Rate</a>
+            <a href="https://www.youtube.com/watch?v=CI_BZuFSkyk" target="_blank">What is a Good Heart Rate?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br> 
+  
+    <!-- featured workout video-->
+    <div class="featured-video">
+      <h1 class="page-title">Featured Workout Video — 10 Minute Workout</h1>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/G1lwVhnnkoU"
+          title="10 Minute Workout - YouTube" 
+          width="80%" height="315" 
+          frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    </div> <!--resrouce section div-->
+
+  </section>
+
+
+
+   <script src="{{ url_for('static', filename='movement.js') }}" defer></script>
+   
+{% endblock %}
