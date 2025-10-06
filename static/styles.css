@@ -113,6 +113,39 @@ body {
     }
 }
 
+/*------ footer -------*/
+.site-footer {
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+  padding: 50px 40px; /*height of*/
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between; /* spreads contact + links */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px; /* breathing room on smaller screens */
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo-img {
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.footer-contact p {
+  margin: 4px 0;
+}
+
 /* -------------- Home page -------------- */
 .home-banner {
     position: relative;
@@ -280,7 +313,7 @@ body {
   }
   
   .events-title {
-    font-size: 2.7rem;
+    font-size: 2.9rem;
     margin-bottom: 40px;
   }
   

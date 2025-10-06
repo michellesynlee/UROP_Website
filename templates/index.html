@@ -49,11 +49,25 @@
         <span class="short-text">Brain Health</span>
       </a>
     </nav>
+  </header>
 
   <main>
     {% block content %}
     {% endblock %}
   </main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <!-- Logo + Contact -->
+    <div class="footer-left">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Footer Logo" class="footer-logo-img" />
+      <div class="footer-contact">
+        <p><strong>Contact Us</strong></p>
+        <p>Email: <a href="mailto:info@communitymovers.org">info@communitymovers.org</a></p>
+        <p>Phone: (123) 456-7890</p>
+      </div>
+    </div>
+
   <script>
     window.EVENTS_JSON_URL = "{{ url_for('static', filename='events.json') }}";
   </script>
