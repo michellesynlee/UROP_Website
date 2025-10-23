@@ -2,10 +2,16 @@
 
 {% block content %}
   <section class="home-banner">
-    <img src="{{ url_for('static', filename='home-banner.jpg') }}" alt="Community Image" class="banner-img">
+    <img src="{{ url_for('static', filename='home-banner.png') }}" alt="Community Image" class="banner-img">
 
     <div class="blurb-box">
-        <p><strong>Welcome! We are a community health hub for Washington Heights & Harlem, powered by your stories and lived experiences.</strong></p>
+        <!--<p><strong>Welcome! We are a community health hub for Washington Heights & Harlem, powered by your stories and lived experiences.</strong></p>-->
+        <p>
+          <strong>Welcome! We are a community brain health hub for Washington Heights & Harlem, powered by your stories and lived experiences.</strong>
+          <br><br>
+          Brain health conditions affect people in many different ways, and each journey is unique. 
+          Explore to see how community, care, and connection make a difference.
+        </p>
       
         <p class="get-started">
           <strong>Get Started Here:</strong>
@@ -25,14 +31,16 @@
     <section class="local-story">
       <div class="story-img-container">
         <div class="img-offset"></div>
-        <img src="{{ url_for('static', filename='family1.jpg') }}" alt="People smiling" class="story-img">
+        <img src="{{ url_for('static', filename='coleys_1.jpg') }}" alt="Bernard and Denise Coley" class="story-img">
       </div>
       <div class="story-text">
-        <h2>Local Story</h2>
-        <p>This is a local story or blog post that is being features on the home page. 
-          This is pretend filler to make it seems like there is a real story. 
-          This gives a little bit of detail or summarizes the story.<br>This is more information.</p>
-        <a href="#" class="learn-more-btn">Learn More</a>
+        <p>
+          <strong>Denise and Bernard Coley’s journey with Parkinson’s disease is one of shared strength, adaptation, and advocacy.</strong>
+          <br><br>
+          In time, their story became one of partnership and purpose. Denise began learning about her symptoms and speaking openly about her experience, 
+          while Bernard became her care partner and strongest advocate.
+          Together, they engage in outreach within Black communities, participate in Parkinson’s research, 
+          and support others navigating the same challenges. 
       </div>
     </section>
   </div>
@@ -75,6 +83,7 @@
         <button class="view-calendar-btn">View Calendar</button>
       </div>
     </div>
+    
     
     <!--
     <div class="view-calendar-wrapper">

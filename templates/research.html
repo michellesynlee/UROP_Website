@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!-- Hero banner -->
+<section class="hero hero--movement" aria-label="Connecting through Research">
+  <img
+    src="{{ url_for('static', filename='research-banner.jpg') }}"
+    alt="Community members enjoying youth activities together"
+    loading="eager"
+  >
+</section>
+
+<!-- Overlapping white card -->
+<section class="page-card">
+  <div class="page-card__inner" id="movement-card">
+
+    <h1 class="page-title">Connecting through Research</h1>
+    <p class="subtitle">
+      Explore ways to learn, participate, and stay informed about ongoing research and proactive brain health.
+    </p>
+
+    <!-- Research Resources Grid -->
+    <div class="resource-grid">
+      <a href="https://www.parkinson.org/advancing-research" class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='parkinson-research.jpg') }}" alt="Parkinson's Foundation Research">
+        <div class="resource-info">
+          <h3>Parkinson’s Foundation</h3>
+          <p>Learn how the Parkinson’s Foundation supports breakthrough research and patient-centered studies.</p>
+        </div>
+      </a>
+
+      <a href="https://research.columbia.edu/clinical-trials-patients" class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='columbia-research.jpg') }}" alt="Columbia Clinical Trials">
+        <div class="resource-info">
+          <h3>Columbia Clinical Trials</h3>
+          <p>Find opportunities to participate in Columbia’s ongoing clinical trials and research studies.</p>
+        </div>
+      </a>
+
+      <a href="https://www.proactivebrainhealth.org/" class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='brainhealth.jpg') }}" alt="Proactive Brain Health">
+        <div class="resource-info">
+          <h3>Proactive Brain Health</h3>
+          <p>Watch educational videos and learn how to reduce risks for neurodegenerative conditions.</p>
+        </div>
+      </a>
+    </div>
+
+      <!-- Story? -->
+
+      <!-- Kids' Corner -->
+    <h2 class="section-subtitle">Kid’s Corner</h2>
+
+    <div class="resource-grid">
+        <a href="https://www.sciencebuddies.org/stem-activities" class="resource-card" target="_blank" rel="noopener">
+            <img src="{{ url_for('static', filename='kids-science.jpg') }}" alt="Kids doing simple science experiments">
+            <div class="resource-info">
+            <h3>Hands-On Science</h3>
+            <p>Try easy at-home experiments that teach how observation and creativity drive discovery.</p>
+            </div>
+        </a>
+
+        <a href="https://www.nasa.gov/learning-resources/nasa-kids-club/" class="resource-card" target="_blank" rel="noopener">
+            <img src="{{ url_for('static', filename='nasa-kids.jpg') }}" alt="NASA Kids Club space illustrations">
+            <div class="resource-info">
+            <h3>NASA Kids Club</h3>
+            <p>Explore space games, videos, and missions that show how research helps us understand the universe.</p>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+</section>
+
+<script src="{{ url_for('static', filename='research.js') }}" defer></script>
+{% endblock %}

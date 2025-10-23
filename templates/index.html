@@ -44,9 +44,9 @@
         <span class="long-text">Connecting through Research</span>
         <span class="short-text">Research</span>
       </a>
-      <a href="#">
-        <span class="long-text">More About Brain Health</span>
-        <span class="short-text">Brain Health</span>
+      <a href="{{ url_for('nutrition') }}">
+        <span class="long-text">Connection through Nutrition</span>
+        <span class="short-text">Nutrition</span>
       </a>
     </nav>
   </header>
@@ -56,22 +56,33 @@
     {% endblock %}
   </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <!-- Logo + Contact -->
-    <div class="footer-left">
-      <img src="{{ url_for('static', filename='logo.png') }}" alt="Footer Logo" class="footer-logo-img" />
-      <div class="footer-contact">
-        <p><strong>Contact Us</strong></p>
-        <p>Email: <a href="mailto:info@communitymovers.org">info@communitymovers.org</a></p>
-        <p>Phone: (123) 456-7890</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <!-- Left: Logo + Contact -->
+      <div class="footer-left">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Footer Logo" class="footer-logo-img" />
+        <div class="footer-contact">
+          <p><strong>Contact Us</strong></p>
+          <p>Email: <a href="mailto:info@communitymovers.org">info@communitymovers.org</a></p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+      </div>
+
+      <!-- Right: Download Storybook -->
+      <div class="footer-right">
+        <a href="https://www.columbiadoctors.org/specialties/neurology/our-services/movement-disorders/patient-family-support-services-and-resources/parkinsons-disease-storybook" target="_blank" class="storybook-link">
+          <div class="storybook-content">
+            <p class="storybook-text">Download <br> the full PD <br> Storybook here: </p>
+            <img src="{{ url_for('static', filename='storybook.jpg') }}" alt="Community Movers Storybook cover" class="storybook-img" />
+          </div>
+        </a>
       </div>
     </div>
 
-  <script>
-    window.EVENTS_JSON_URL = "{{ url_for('static', filename='events.json') }}";
-  </script>
-  <script src="{{ url_for('static', filename='events.js') }}" defer></script>
-  <!--<script src="script.js"></script>-->
-</body>
-</html>
+    <script>
+      window.EVENTS_JSON_URL = "{{ url_for('static', filename='events.json') }}";
+    </script>
+    <script src="{{ url_for('static', filename='events.js') }}" defer></script>
+  </footer>
+  </body>
+  </html>

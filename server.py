@@ -23,5 +23,9 @@ def youth():
 def research():
     return render_template("research.html")  
 
+@app.route("/nutrition")
+def nutrition():
+    return render_template("nutrition.html")  
+
 if __name__ == '__main__':
     app.run(debug=True)

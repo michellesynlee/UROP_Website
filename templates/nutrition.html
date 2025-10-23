@@ -1,0 +1,91 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!-- Hero banner -->
+<section class="hero hero--movement" aria-label="Connecting through Nutrition">
+  <img
+    src="{{ url_for('static', filename='food-banner.jpg') }}"
+    alt="Healthy meal variety featuring fruits, grains, and vegetables"
+    loading="eager"
+  >
+</section>
+
+<!-- Overlapping white card -->
+<section class="page-card">
+  <div class="page-card__inner" id="movement-card">
+
+    <h1 class="page-title">Connecting through Nutrition</h1>
+    <p class="subtitle">
+      Nutrition connects cultures, supports brain and body health, and strengthens community.  
+      Explore resources below to learn how food choices—from everyday meals to cultural traditions—can promote lifelong well-being.
+    </p>
+
+    <!-- 1. Daily Diet Section -->
+    <h2 class="section-subtitle"> Daily Diet & Brain Health</h2>
+    <div class="resource-grid">
+      <a href="https://www.rush.edu/news/new-mind-diet-may-significantly-protect-against-alzheimers-disease" 
+         class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='mind-diet.jpg') }}" alt="MIND Diet foods: berries, fish, olive oil">
+        <div class="resource-info">
+          <h3>The MIND Diet</h3>
+          <p>Learn how the MIND diet blends Mediterranean and DASH principles to support brain health and reduce Alzheimer’s risk.</p>
+        </div>
+      </a>
+
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4532650/" 
+         class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='brain-food.jpg') }}" alt="Healthy brain foods: nuts, greens, grains">
+        <div class="resource-info">
+          <h3>Research on MIND Diet Benefits</h3>
+          <p>Read the original scientific study linking the MIND diet to improved cognitive function and slower decline.</p>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=cFolEG1qmSA" 
+         class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='emory-video.jpg') }}" alt="Emory Brain Health Community Outreach video">
+        <div class="resource-info">
+          <h3>Emory Brain Health Series</h3>
+          <p>Watch a short introduction video on how diet choices affect brain health and long-term wellness.</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- 2. Personalized Nutrition Tips -->
+    <h2 class="section-subtitle"> Personalized Nutrition & Wellness</h2>
+    <div class="resource-grid">
+      <a href="https://www.myplate.gov/" class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='myplate.jpg') }}" alt="USDA MyPlate healthy eating plate">
+        <div class="resource-info">
+          <h3>MyPlate Guide</h3>
+          <p>Find healthy eating tips and visual meal guides to help you balance portions and nutrients daily.</p>
+        </div>
+      </a>
+
+      <a href="https://www.parkinson.org/library/fact-sheets/constipation" class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='fiber-foods.jpg') }}" alt="High-fiber foods for Parkinson's management">
+        <div class="resource-info">
+          <h3>Managing Constipation in Parkinson’s</h3>
+          <p>Explore high-fiber foods and hydration strategies from different cultures to support digestive health.</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- 3. Kids' Corner -->
+    <h2 class="section-subtitle"> Kid’s Corner</h2>
+    <div class="resource-grid">
+      <a href="https://www.fns.usda.gov/apps/TNinteractive/index.html" 
+         class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='kids-foods.jpg') }}" alt="Interactive kids nutrition tool">
+        <div class="resource-info">
+          <h3>What Kids Eat Around the World</h3>
+          <p>Explore breakfasts from different countries and see how they fit into healthy food groups—fun for all ages!</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script src="{{ url_for('static', filename='nutrition.js') }}" defer></script>
+{% endblock %}

@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: white;
+    background-color: rgba(244, 241, 246, 0.819);
     font-family: 'Manrope', sans-serif;
 }
  
@@ -21,6 +21,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 16px;
+    background-color: rgb(255, 255, 255);
 }
   
 .logo-title {
@@ -29,13 +30,13 @@ body {
 }
   
 .logo {
-    height: 85px;
+    height: 90px;
     margin-right: 13px;
 }
   
 .site-text h1 {
     margin: 0.5;
-    font-size: 37px;
+    font-size: 40px;
 }
   
 .site-text p {
@@ -117,9 +118,9 @@ body {
 .site-footer {
   background-color: #f8f8f8;
   border-top: 1px solid #ddd;
-  padding: 50px 40px; /*height of*/
+  padding: 60px 50px; /*height of*/
   font-family: 'Manrope', sans-serif;
-  font-size: 18px;
+  font-size: 23px;
   color: #333;
 }
 
@@ -128,65 +129,123 @@ body {
   justify-content: space-between; /* spreads contact + links */
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 40px; /* breathing room on smaller screens */
+  gap: 50px; /* breathing room on smaller screens */
 }
 
 .footer-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .footer-logo-img {
-  height: 90px;
+  height: 95px;
   flex-shrink: 0;
 }
 
 .footer-contact p {
-  margin: 4px 0;
+  margin: 5px 0;
+}
+
+
+/* the commuinty movers book */
+
+.footer-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.storybook-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.storybook-link:hover {
+  transform: translateY(-4px);
+}
+
+.storybook-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.storybook-img {
+  width: 180px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.storybook-text {
+  font-size: 1.6rem; /* bigger text roughly matching the image height */
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+  text-align: right; /* aligns nicely with the image beside it */
+}
+
+@media (max-width: 700px) {
+  .storybook-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .storybook-text {
+    text-align: center;
+    font-size: 1.3rem;
+  }
 }
 
 /* -------------- Home page -------------- */
 .home-banner {
     position: relative;
     width: 100%;
-    height: 190px; /* Thin banner height */
+    height: 350px; /* increased height so more of the image shows */
     overflow: visible;
 }
-  
+
 .banner-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the area nicely */
+    object-fit: cover; 
+    object-position: center top; /* keeps important parts of the image visible */
 }
-  
+
+/* floating blurb box halfway down the image */
 .blurb-box {
     position: absolute;
-    bottom: -70px;  /* Adjust based on how low you want it to "sit" on the page */
+    top: 95%; /* move it halfway down the banner */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%); /* perfectly centers horizontally & vertically */
     background: white;
-    padding: 20px 20px 20px 40px; 
-    border-radius: 35px;
-    box-shadow: 0 12px 20px rgba(56, 23, 81, 0.586);
-    max-width: 850px;
+    padding: 35px 35px;
+    border-radius: 40px;
+    box-shadow: 0 12px 20px rgba(56, 23, 81, 0.45);
+    max-width: 900px;
     width: 85%;
     text-align: left;
-    font-size: 18px;
+    font-size: 22px;
+    z-index: 2; /* sits above the image */
 }
 
-/*makes blurb box disappear when browser is narrower
-*/
-
+/* responsive adjustments */
 @media (max-width: 800px) {
-    .blurb-box {
-        width: 80%;
-        padding: 13px;
-        font-size: 1.0rem;
+    .home-banner {
+        height: 240px; /* slightly smaller banner on mobile */
     }
-  
+
+    .blurb-box {
+        top: 75%; /* moves lower for better balance on small screens */
+        width: 55%;
+        padding: 16px;
+        font-size: 1rem;
+    }
+
     .get-started {
-        font-size: 1.0rem; 
+        font-size: 1rem;
     }
 
     .get-started select {
@@ -196,10 +255,10 @@ body {
 
 .get-started {
     text-align: left;
-    font-size: 2.0rem;
+    font-size: 2rem;
     margin-top: 20px;
 }
-  
+
 .get-started select {
     font-size: 1.1rem;
     margin-left: 10px;
@@ -211,6 +270,7 @@ body {
     background-color: rgba(211, 211, 211, 0.327);
 }
 
+
 /*that light purple line*/
 .purple-line {
     height: 20px; /* adjust thickness */
@@ -218,71 +278,106 @@ body {
     width: 100%;
 }
 
-/*local story*/
+.local-story-wrapper { /*the coleys*/
+  display: flex;
+  justify-content: center;
+  padding: 220px 80px 10px;
+}
 
-.local-story-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 150px 80px 10px;
-}
-  
+
 .local-story {
-    display: flex;
-    align-items: flex-start;
-    gap: 60px;
-    max-width: 1000px;
-    width: 100%;
-    flex-wrap: nowrap; /* Prevents image and text from stacking */
+  display: flex;
+  align-items: center; /* centers image + text vertically */
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: nowrap; /* keep side-by-side */
 }
-  
+
 .story-img-container {
-    position: relative;
-    display: inline-block;
-    margin-top: 40px; /* Matches .img-offset top */
-  }
-  
+  position: relative;
+  display: inline-block;
+  margin-top: 0; /* remove the extra push-down */
+}
+
 .img-offset {
-    position: absolute;
-    top: 10px;
-    left: -15px;
-    width: 100%;
-    height: 100%;
-    background-color: #dad4ef; /* light purple */
-    z-index: 0;
-    border-radius: 0; /* Optional: match if image has border-radius */
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  width: 100%;
+  height: 100%;
+  background-color: #dad4ef; /* light purple */
+  z-index: 0;
 }
-  
+
 .story-img {
-    position: relative;
-    z-index: 1;
-    width: 400px;
-    height: auto;
-    display: block;
+  position: relative;
+  z-index: 1;
+  width: 450px;
+  height: auto;
+  display: block;
 }
-  
+
+/*the coleys (in movement tab*/
+
+.local-story-3 {
+  display: flex;
+  align-items: center; /* centers image + text vertically */
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: nowrap; /* keep side-by-side */
+}
+
+.local-story-wrapper-3 { 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;                  /* space between image and text */
+  padding: 15px 5vw 10px;   /* use viewport padding so it scales */
+  max-width: 1400px;          /* increase total width */
+  margin: 0 auto;             /* center entire section in page */
+  width: 100%;                /* let it take full available space */
+  box-sizing: border-box;     /* makes padding not shrink width */
+}
+
+
+.story-img-container-3 {
+  position: relative;
+  display: inline-block;
+}
+
+.story-text-3 {
+  flex: 1;
+  width: 100%;
+  max-width: none;
+  font-size: 1.5rem;
+}
+
+
+.story-img-3 { /*the coleys (in movement tab*/
+  position: relative;
+  z-index: 1;
+  width: 450px;
+  height: auto;
+  display: block;
+  margin-top: 0.5rem !important; /*makes image and text align*/
+}
+
+/*bernard text*/
 .story-text {
-    flex: 1;
-    min-width: 0; /* Ensures it doesn't overflow */
+  flex: 1;
+  min-width: 0;
 }
-  
+
 .story-text h2 {
-    font-size: 2.3rem;
-    font-weight: bold;
+  font-size: 2.45rem;
+  font-weight: bold;
 }
-  
+
 .story-text p {
-    font-size: 1.3rem;
-    color: #2c2c2c;
-}
-  
-.learn-more-btn {
-    display: inline-block;
-    margin-top: 8px;
-    background-color: #9ce37d;
-    padding: 8px 14px;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
+  font-size: 1.5rem;
+  color: #2c2c2c;
 }
 
 
@@ -309,12 +404,12 @@ body {
 
 .events-section {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 10px;
   }
   
   .events-title {
     font-size: 2.9rem;
-    margin-bottom: 40px;
+    margin-bottom: 4%;
   }
   
   .events-container {
@@ -373,6 +468,10 @@ body {
   display: block;
 }
 
+.subtitle {
+  font-size: x-large;
+}
+
 .page-card {
   position: relative;
   z-index: 1;                /* makes it so that the white card sits above the hero */
@@ -402,13 +501,46 @@ body {
 .page-title {
   font-weight: 800;
   line-height: 1.18;       /*slightly more leading for multi-line titles */
-  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  font-size: clamp(2rem, 4.5vw, 2.95rem);
   margin: 0 0 8px;
   letter-spacing: 0.005em; /*tiny tracking to open it up */
 }
 
 /* tightens top spacing if your navbar has extra margin below */
 main { display: block; }
+
+.faith-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 400px;
+  height: 440px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faith-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+}
+
+.faith-card img {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+}
+
+.faith-caption {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.8rem 0;
+  color: #3c2a6c;
+}
 
 /* -------------------- BUBBLESSSSSS board -------------------- */
 :root{
@@ -692,87 +824,50 @@ main { display: block; }
 .faith-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
   justify-content: center;
-  margin-top: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;   /* reduced top space */
+  padding-top: 0;     /* remove extra padding */
+  gap: 36px;          /* unified spacing that works reliably in modern browsers */
 }
 
+/* Remove margin override — this was breaking your layout */
+.faith-grid > * {
+  margin: 0 !important;
+}
+
+/* Card styling */
 .flip-card {
   background-color: transparent;
-  width: 280px;
-  height: 320px;
+  width: 400px !important;   /* force width override */
+  height: 410px !important;  /* force height override */
   perspective: 1000px;
+  flex-shrink: 0;
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  cursor: pointer;
+/* Optional: slightly reduce size for smaller screens */
+@media (max-width: 700px) {
+  .faith-grid {
+    gap: 24px;
+    margin-top: 1rem;
+  }
+  .flip-card {
+    width: 280px !important;
+    height: 340px !important;
+  }
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+/* Optional: slightly reduce spacing for smaller screens */
+@media (max-width: 700px) {
+  .faith-grid {
+    gap: 28px;
+    margin-top: 2rem;
+  }
+  .flip-card {
+    width: 260px;
+    height: 320px;
+  }
 }
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  backface-visibility: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.flip-card-front img {
-  width: 100%;
-  height: 75%;
-  object-fit: cover;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-
-.flip-card-front .faith-caption {
-  padding: 8px 0;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.flip-card-back {
-  background-color: #f7f7f7;
-  transform: rotateY(180deg);
-  padding: 20px;
-  text-align: center;
-}
-
-.flip-card-back h3 {
-  margin-bottom: 12px;
-  font-size: 1.3rem;
-  color: #222;
-}
-
-.flip-card-back a {
-  display: block;
-  margin: 8px 0;
-  color: #005bac;
-  font-weight: 500;
-  text-decoration: none;
-  font-size: 1.05rem;
-}
-
-.flip-card-back a:hover {
-  text-decoration: underline;
-}
-
 /* Responsive video */
 .video-container {
   position: relative;
@@ -793,7 +888,7 @@ main { display: block; }
 }
 
 .why-meditation {
-  font-size: 1.55rem; /* makes text larger */
+  font-size: 2 rem; /* makes text larger */
   line-height: 1.7;   /* improves readability */
 }
 
@@ -989,8 +1084,8 @@ main { display: block; }
 }
 
 .featured-event__image {
-  width: 75%;
-  height: 75%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -1023,4 +1118,95 @@ main { display: block; }
 .featured-event__btn {
   font-size: 1.125rem;
   padding: 0.75rem 1.5rem;
+}
+
+/* ---------- Research Tab ---------- */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.resource-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  overflow: visible; /* <-- allow the image to extend out */
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.resource-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px; /* smooth edges */
+  margin-top: -10px;   /* push image slightly outside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.resource-info {
+  padding: 1.2rem 1.4rem;
+}
+
+.resource-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3a2a72;
+  margin-bottom: 0.5rem;
+}
+
+.resource-info p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* Mobile spacing */
+@media (max-width: 600px) {
+  .resource-info {
+    padding: 1rem;
+  }
+  .resource-info h3 {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---------- Nutrition Tab ---------- */
+
+.section-subtitle {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #000000;
+  font-weight: 600;
+  border-left: 5px solid #a4d65e;
+  padding-left: 10px;
+}
+
+.why-meditation {
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Optional: add soft fade for images */
+.resource-card img {
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.resource-card:hover img {
+  transform: scale(1.05);
+  opacity: 0.9;
 }

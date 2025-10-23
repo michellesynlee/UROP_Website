@@ -4,7 +4,7 @@
   <!-- Hero banner -->
   <section class="hero hero--movement" aria-label="Connecting through Movement">
     <img
-      src="{{ url_for('static', filename='movement.jpg') }}"
+      src="{{ url_for('static', filename='move-banner.jpg') }}"
       alt="Community members enjoying movement together"
       loading="eager"
     >
@@ -16,9 +16,9 @@
     <div class="page-card__inner" id="movement-card">
 
       <h1 class="page-title">Connecting Through Movement</h1>
-        <p class="why-meditation">
+        <p class="subtitle">
             Guides, research, and resources to help you stay active and connected!
-            <br><span class="sublead">Explore resources in this section:</span>
+            <br>Explore resources in this section:</span>
         </p>
 
       <!-- BUBBLES -->
@@ -80,53 +80,60 @@
       <!---End of bubbles-->
       <!-- Getting started - guided stretching -->
     <div class="resource-section">
-    <h1 class="page-title">Get Started With Flexibility and Movement</h1>
-    <div class="faith-grid">
+    <h1 class="section-subtitle">Get Started With Flexibility and Movement</h1>
+      <div class="faith-grid">
 
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="{{ url_for('static', filename='stretching.png') }}" alt="Stretching Image">
-            <p class="faith-caption">Learn to Stretch</p>
-          </div>
-          <div class="flip-card-back">
-            <a href="https://www.youtube.com/watch?v=S0YVmpdKuKY" target="_blank">5 Min Full-Body Stretch Video</a>
-          </div>
-        </div>
-      </div>
+        <a href="https://www.youtube.com/watch?v=S0YVmpdKuKY" 
+          class="faith-card" target="_blank" rel="noopener">
+          <img src="{{ url_for('static', filename='stretching.png') }}" 
+              alt="Person stretching arms upward on yoga mat">
+          <p class="faith-caption">5 Minute Stretch Video</p>
+        </a>
 
+        <a href="https://www.fitnessblender.com/videos" 
+          class="faith-card" target="_blank" rel="noopener">
+          <img src="{{ url_for('static', filename='workout.png') }}" 
+              alt="Person exercising indoors">
+          <p class="faith-caption">Free Exercise Tools</p>
+        </a>
 
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="{{ url_for('static', filename='workout.png') }}" alt="Workout Image">
-            <p class="faith-caption">Learn to Exercise</p>
-          </div>
-          <div class="flip-card-back">
-            <a href="https://www.fitnessblender.com/videos" target="_blank">Free Workout Videos</a>
-          </div>
-        </div>
-      </div>
+        <a href="https://www.youtube.com/watch?v=BSlRvD-CZSo" 
+          class="faith-card" target="_blank" rel="noopener">
+          <img src="{{ url_for('static', filename='heartrate.jpg') }}" 
+              alt="Smartwatch measuring heart rate">
+          <p class="faith-caption">Learn to Take Your Heart Rate</p>
+        </a>
 
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="{{ url_for('static', filename='heartrate.jpg') }}" alt="Heart Rate">
-            <p class="faith-caption">Learn Your Heart Rate</p>
-          </div>
-          <div class="flip-card-back">
-            <a href="https://www.youtube.com/watch?v=BSlRvD-CZSo" target="_blank">How to Check Your Heart Rate</a>
-            <a href="https://www.youtube.com/watch?v=CI_BZuFSkyk" target="_blank">What is a Good Heart Rate?</a>
-          </div>
-        </div>
       </div>
     </div>
 
     <br> 
+
+    <!-- Local Story Section -->
+    <h1 class="section-subtitle">Bernard and Denise Coley's Journey</h1>
+    <div class="local-story-wrapper-3">
+      <section class="local-story-3">
+        <div class="story-img-container-3">
+          <div class="img-offset"></div>
+          <img src="{{ url_for('static', filename='denise_coley_1.jpg') }}" 
+              alt="Bernard and Denise Coley" class="story-img-3">
+        </div>
+        <div class="story-text-3">
+          <p>
+            <br><br>
+            <strong>Denise Coley:</strong> “ Over a ten-year period, I slowly started experiencing symptoms — fatigue, trouble balancing, and what I later learned was called <em>micrographia</em>. When I finally heard the doctor say ‘Parkinson’s,’ I felt my life plans vanish in seconds. 
+            <br><br>
+            I thought the muscle fatigue was from my marathon training and participation; but my concerns escalated
+            when my children told me that I was shaking during Thanksgiving dinner in 2017. I never imagined that
+            the symptoms over the previous ten years were related to each other. " 
+          </p>
+        </div>
+      </section>
+    </div>
   
     <!-- featured workout video-->
     <div class="featured-video">
-      <h1 class="page-title">Featured Workout Video — 10 Minute Workout</h1>
+      <h1 class="section-subtitle">Featured Workout Video — 10 Minute Workout</h1>
       <div class="video-container">
         <iframe 
           src="https://www.youtube.com/embed/G1lwVhnnkoU"
@@ -136,6 +143,45 @@
         </iframe>
       </div>
     </div>
+
+    <!--Kid's Corner-->
+    <!-- Kids' Corner Section -->
+    <h2 class="section-subtitle"> Kid’s Corner</h2>
+
+    <div class="resource-grid">
+
+      <a href="https://www.cdc.gov/physical-activity-basics/children/index.htm" 
+        class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='kids-activity.jpg') }}" 
+            alt="Children playing outdoor games and exercising together">
+        <div class="resource-info">
+          <h3>CDC Kids’ Activity Guide</h3>
+          <p>Learn how much movement kids need each day—and get ideas for fun, safe physical activities.</p>
+        </div>
+      </a>
+
+      <a href="https://www.nhlbi.nih.gov/health/educational/wecan/get-active/activity-planner.htm" 
+        class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='family-fun.jpg') }}" 
+            alt="Family stretching together before a walk">
+        <div class="resource-info">
+          <h3>Family Activity Planner</h3>
+          <p>Use this printable planner to set small movement goals and track your family’s favorite ways to be active.</p>
+        </div>
+      </a>
+
+      <a href="https://kidshealth.org/en/kids/fit-kid.html" 
+        class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='fit-kids.jpg') }}" 
+            alt="Kid running and smiling outdoors">
+        <div class="resource-info">
+          <h3>Fit Kids: How to Stay Strong</h3>
+          <p>Find out why exercise matters and how to make movement fun every day—from dancing to biking.</p>
+        </div>
+      </a>
+
+    </div>
+
 
     </div> <!--resrouce section div-->
 

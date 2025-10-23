@@ -4,7 +4,7 @@
 <!-- Hero banner -->
 <section class="hero hero--movement" aria-label="Connecting through Spirit">
   <img
-    src="{{ url_for('static', filename='spirit.jpg') }}"
+    src="{{ url_for('static', filename='spirit-banner.jpg') }}"
     alt="Community members enjoying faith together"
     loading="lazy"
   >
@@ -15,23 +15,23 @@
   <div class="page-card__inner" id="spirit-card">
 
     <h1 class="page-title">Connecting Through Spirit</h1>
-    <p class="why-meditation">
+    <p class="subtitle">
       Resources to support your spiritual well-being. Explore community faith centers and guided meditation practices below.</span>
     </p>
 
     <!-- Meditation Intro Paragraph -->
     <div>
-      <h2 class="why-meditation">Why Meditation & Mindfulness?</h2>
-      <p class="why-meditation">
+      <h2 class="section-subtitle">Why Meditation & Mindfulness?</h2>
+      <p class="subtitle">
         Meditation and mindfulness can help us reduce stress, cope with pain, and improve our focus as we approach the obstacles of our daily lives.
         For a helpful guide on how to begin meditating and practicing mindfulness, please see the
-        <a href="https://www.mindful.org/how-to-meditate/" target="_blank" rel="noopener">mindful.org guide on How to Meditate</a>.
+        <a href="https://www.mindful.org/how-to-meditate/" target="_blank" rel="noopener">mindful.org guide</a> .
       </p>
     </div>
 
     <!-- Faith-Based Community Resources -->
     <div class="resource-section">
-    <h2 class="centered-section-title">Local Faith Communities</h2>
+    <h2 class="section-subtitle"> Local Faith Communities</h2>
     <div class="faith-grid">
     
     <!-- Church Card -->
@@ -43,9 +43,9 @@
         </div>
         <div class="flip-card-back">
           <h3>Local Church</h3>
-          <a href="https://www.riversidenyc.org/" target="_blank">Visit Riverside Church</a><br>
-          <a href="#">Service Times</a><br>
-          <a href="#">Contact Info</a>
+          <a href="https://www.trcnyc.org/" target="_blank">Visit Riverside Church</a><br>
+          <a href="https://www.trcnyc.org/worshipschedule/">Service Times</a><br>
+          <a href="https://www.trcnyc.org/contact/">Contact Info</a>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@
 
    <!-- Meditation & Mindfulness Resources with Flip Cards -->
   <div class="resource-section">
-    <h2 class="centered-section-title">Guided Meditation & Mindfulness Practices</h2>
+    <h2 class="section-subtitle"> Guided Meditation & Mindfulness Practices</h2>
     <div class="faith-grid">
 
       <!-- Deep Breathing Card -->
@@ -140,7 +140,7 @@
 
     <!-- Optional Embedded Meditation Video -->
     <div class="resource-section">
-      <h2>Watch a 5-Minute Meditation</h2>
+      <h2 class="section-subtitle">Watch a 5-Minute Meditation</h2>
       <p class="lead page-lead">Need a quick reset? Try this short guided meditation below:</p>
       <div class="video-container">
         <iframe 
@@ -150,6 +150,30 @@
           frameborder="0" allowfullscreen>
         </iframe>
       </div>
+    </div>
+
+    <!-- Kid's Corner -->
+
+    <h2 class="section-subtitle"> Kid’s Corner </h2>
+
+    <div class="resource-grid">
+
+      <a href="https://kidshealth.org/en/kids/mindfulness.html" class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='mindful-kids.jpg') }}" alt="Child practicing mindfulness outdoors">
+        <div class="resource-info">
+          <h3>Mindfulness for Kids</h3>
+          <p>Simple breathing and focus techniques to help children relax, manage emotions, and feel calm.</p>
+        </div>
+      </a>
+
+      <a href="https://www.randomactsofkindness.org/kindness-at-home" class="resource-card" target="_blank" rel="noopener">
+        <img src="{{ url_for('static', filename='kindness.jpg') }}" alt="Kids creating kindness cards together">
+        <div class="resource-info">
+          <h3>Kindness Activities</h3>
+          <p>Fun ways families can spread kindness at home and in their communities—one small act at a time.</p>
+        </div>
+      </a>
+
     </div>
 
   </div>
