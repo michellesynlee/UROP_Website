@@ -27,24 +27,39 @@
 
   <div class="purple-line"></div>
 
-  <div class="local-story-wrapper">
-    <section class="local-story">
-      <div class="story-img-container">
-        <div class="img-offset"></div>
-        <img src="{{ url_for('static', filename='coleys_1.jpg') }}" alt="Bernard and Denise Coley" class="story-img">
-      </div>
-      <div class="story-text">
-        <p>
-          <strong>Denise and Bernard Coley’s journey with Parkinson’s disease is one of shared strength, adaptation, and advocacy.</strong>
-          <br><br>
-          In time, their story became one of partnership and purpose. Denise began learning about her symptoms and speaking openly about her experience, 
-          while Bernard became her care partner and strongest advocate.
-          Together, they engage in outreach within Black communities, participate in Parkinson’s research, 
-          and support others navigating the same challenges. 
-      </div>
-    </section>
-  </div>
+  <h2 class="first-story-title">Our Community Stories</h2>
 
+  <div class="story-bubble">   <!-- NEW BUBBLE WRAPPER -->
+    <div class="story-highlight">
+      <div class="local-story-wrapper">
+        <section class="local-story">
+          <div class="story-img-container">
+            <div class="img-offset"></div>
+            <img src="{{ url_for('static', filename='coleys_1.jpg') }}" 
+                alt="Bernard and Denise Coley" 
+                class="story-img">
+          </div>
+
+          <div class="story-text">
+            <p>
+              <strong>
+                Brain Health affects us all in different ways. 
+                Stories have existed long before websites and are another way of learning and connecting.
+              </strong>
+              <br><br>
+              Denise and Bernard Coley’s journey with Parkinson’s disease is one of shared strength, 
+              adaptation, and advocacy. Denise began learning about her symptoms and speaking openly 
+              about her experience, while Bernard became her care partner and strongest advocate. 
+              By exploring other people's brain health journeys, we can learn more about ourselves. 
+              So, feel free to explore real community anecdotes as you navigate the Community Resource tabs!
+            </p>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </div>
+    
   <!--
   <div class="events-section">
     <h2 class="events-title">Upcoming Events</h2>
@@ -80,7 +95,7 @@
       <div id="events-container" class="events-container" aria-live="polite"></div>
 
       <div class="view-calendar-wrapper">
-        <button class="view-calendar-btn">View Calendar</button>
+        <a href="{{ url_for('calendar_page') }}" class="view-calendar-btn">View Calendar</a>
       </div>
     </div>
     

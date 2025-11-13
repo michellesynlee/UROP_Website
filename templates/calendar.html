@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% block content %}
+
+<!-- Banner 
+<section class="calendar-banner">
+  <img src="{{ url_for('static', filename='calendar-banner-1.jpg') }}" alt="Community Wellness Banner">
+</section> -->
+
+<section class="calendar-section">
+  <div id="calendar-title" class="calendar-center">
+  <div class="calendar-header">
+    <button id="calendar-prev" class="calendar-nav-btn">&#8592;</button>
+    <h1 id="calendar-month-title"></h1>
+    <button id="calendar-next" class="calendar-nav-btn">&#8594;</button>
+  </div>
+  <p>Community Health & Wellness Events</p>
+</div>
+
+  <div id="calendar-grid" class="calendar-grid"></div>
+</section>
+
+<!-- Modal -->
+<div id="calendar-modal-overlay" class="calendar-overlay calendar-hidden"></div>
+<div id="calendar-event-modal" class="calendar-modal calendar-hidden">
+  <button class="calendar-close-modal">&times;</button>
+  <h2 id="calendar-modal-title"></h2>
+  <p id="calendar-modal-summary"></p>
+  <p><strong id="calendar-modal-time"></strong></p>
+  <p id="calendar-modal-location"></p>
+  <p id="calendar-modal-note"></p>
+  <div id="calendar-modal-cta"></div>
+</div>
+
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='calendar.css') }}">
+<script src="{{ url_for('static', filename='calendar.js') }}"></script>
+
+{% endblock %}

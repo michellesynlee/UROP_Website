@@ -2,6 +2,7 @@
   {
     "id": "connecting-through-art",
     "title": "Connecting Through Art (APDA x Columbia)",
+    "shortLabel": "Art Group",
     "summary": "Monthly creative arts group for people impacted by Parkinson’s disease. No experience required; supplies provided.",
     "description": "Each month explores a different medium—watercolor, acrylics, weaving, sculpture, collage, and more. The program supports mood, connection, and fine motor/visual-cognitive skills.",
     "recurrence": {
@@ -10,7 +11,7 @@
       "weekday": "FR"
     },
     "time": {
-      "start": "14:00",
+      "start": "12:00",
       "end": "16:00",
       "timezone": "America/New_York"
     },
@@ -26,43 +27,15 @@
       "note": "Zoom link provided upon registration. Space is limited."
     },
     "cta": {
-      "label": "Register",
+      "label": "Register via Email",
       "href": "mailto:era2142@cumc.columbia.edu"
     },
     "tags": ["Parkinson’s", "Art", "Community", "Recurring"]
   },
   {
-    "id": "disability-insurance-planning",
-    "title": "Planning Ahead: Disability, Insurance & Resources",
-    "summary": "Monthly virtual workshop for families affected by neurological illness. Learn about disability applications, transportation options, and insurance coverage.",
-    "description": "If you’re wondering whether your insurance covers transportation, if you should apply for disability, or how to plan ahead, you are not alone. This monthly workshop, led by a licensed social worker specializing in neurology, covers key resources for families managing neurological illness.",
-    "recurrence": {
-      "type": "monthly",
-      "which": "second",
-      "weekday": "WE"
-    },
-    "time": {
-      "start": "13:00",
-      "end": "14:00",
-      "timezone": "America/New_York"
-    },
-    "location": {
-      "mode": "Virtual",
-      "name": "Zoom",
-      "meetingId": "969 2820 4317"
-    },
-    "registration": {
-      "note": "Visit our events page for more information."
-    },
-    "cta": {
-      "label": "Visit Events Page",
-      "href": "#"
-    },
-    "tags": ["Disability", "Insurance", "Neurology", "Workshop", "Recurring"]
-  },
-  {
     "id": "neurology-grief-support",
     "title": "Grief Support Group for Neurological Disease Loss",
+    "shortLabel": "Grief",
     "summary": "Biweekly online support group for those who have lost a loved one to a chronic neurological illness. Open to Columbia caregivers.",
     "description": "This biweekly group offers support for those grieving the loss of a loved one to a brain cancer or chronic neurological disease like ALS or Parkinson’s. Sessions cover grief-related topics and ways to honor their memory. Participants must commit to at least 6 of 9 sessions.",
     "recurrence": {
@@ -76,8 +49,8 @@
       "timezone": "America/New_York"
     },
     "location": {
-      "mode": "virtual",
-      "name": "Zoom"
+      "mode": "Virtual",
+      "name": "Virtual (Zoom)"
     },
     "eligibility": {
       "requirements": [
@@ -94,14 +67,15 @@
       "Linda Golding, MA, BCC – Multifaith Chaplain"
     ],
     "cta": {
-      "label": "Register",
-      "href": "#"
+      "label": "Register via Form",
+      "href": "https://cumc.co1.qualtrics.com/jfe/form/SV_eaIeit0541eCsbs"
     },
     "tags": ["Grief", "Caregivers", "Neurology", "Support", "Recurring"]
   },
   {
     "id": "speech-for-pd",
     "title": "Speech for PD",
+    "shortLabel": "Speech",
     "summary": "Free, online speech classes for people with Parkinson’s and their care partners, led by Dr. Gemma Moya-Galé at Columbia University.",
     "description": "Speech for PD is a university- and community-based program offering free online group speech classes to improve communication and social connection for people with Parkinson’s disease. Founded by Dr. Gemma Moya-Galé in 2019 and supported by the Parkinson’s Foundation.",
     "recurrence": {
@@ -115,7 +89,7 @@
     },
     "location": {
       "mode": "Virtual",
-      "name": "Zoom"
+      "name": "Virtual (Zoom)"
     },
     "contact": {
       "name": "Dr. Gemma Moya-Galé",
@@ -126,9 +100,42 @@
     "values": "Speech for PD is an inclusive and diverse community that empowers people with PD and promotes social connection.",
     "goals": "Our goal is to improve quality of life through voice strengthening and social communication in a supportive space.",
     "cta": {
-      "label": "Contact",
+      "label": "Register via Email",
       "href": "mailto:gm2446@tc.columbia.edu"
     },
     "tags": ["Parkinson’s", "Speech", "Support", "Recurring", "Communication"]
+  },
+  {
+    "id": "cuimc-support-group",
+    "title": "CUIMC Parkinson's Support Group",
+    "shortLabel": "CUIMC",
+    "summary": "Providing educational information and support to individuals with Parkinson’s disease and their families. During every transition and challenge in your journey of living with Parkinson’s disease, knowing that you are not alone is important.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "third",
+      "weekday": "TU"
+    },
+    "time": {
+      "start": "14:00",
+      "end": "15:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual",
+      "name": "Virtual (Zoom)"
+    },
+    "registration": {
+      "note": "Meetings are held via Zoom. Registration is required to receive the meeting link, ID, and password.",
+      "contactName": "Erika Adelman, LCSW, SIFI",
+      "phone": "929-695-0282",
+      "email": "era2142@cumc.columbia.edu"
+    },
+    "cta": {
+      "label": "Register via Email",
+      "href": "mailto:era2142@cumc.columbia.edu"
+    },
+    "color": "#a46bdc",
+    "textColor": "#fff",
+    "tags": ["Parkinson’s", "Support", "Recurring"]
   }
 ]

@@ -220,7 +220,7 @@ body {
     top: 95%; /* move it halfway down the banner */
     left: 50%;
     transform: translate(-50%, -50%); /* perfectly centers horizontally & vertically */
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 35px 35px;
     border-radius: 40px;
     box-shadow: 0 12px 20px rgba(56, 23, 81, 0.45);
@@ -278,10 +278,35 @@ body {
     width: 100%;
 }
 
+/* the title our community stories */ 
+
+.first-story-title {
+  font-size: 40px;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.story-bubble {
+  background: #e6dcf1;            /* very light purple, matches your theme */
+  border-radius: 0px;            /* bubble shape */
+  padding: 2rem 2.5rem;           /* inner spacing */
+  margin: 1.5rem 0 2rem;          /* spacing around bubble */
+  box-shadow: 5 6px 18px rgba(0, 0, 0, 0.595);  /* soft shadow */
+}
+
+.story-bubble {
+  animation: bubbleFade 0.4s ease-out;
+}
+
+@keyframes bubbleFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .local-story-wrapper { /*the coleys*/
   display: flex;
   justify-content: center;
-  padding: 220px 80px 10px;
+  padding: 15px 80px 10px;
 }
 
 
@@ -313,9 +338,44 @@ body {
 .story-img {
   position: relative;
   z-index: 1;
-  width: 450px;
+  width: 550px;
   height: auto;
   display: block;
+}
+
+/*bernard text*/
+.story-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.story-text h2 {
+  font-size: 2.45rem;
+  font-weight: bold;
+}
+
+.story-text p {
+  font-size: 1.5rem;
+  color: #2c2c2c;
+}
+
+.full-bubble {
+  width: 100%;
+  background: #e9defa; /* softer purple, matches your theme */
+  padding: 0rem 0rem;
+  margin: 2rem 0;
+
+  /* Force it to act like a full-width section */
+  display: block;
+  box-sizing: border-box;
+
+  /* Soft card shadow */
+  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+
+.full-bubble {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*the coleys (in movement tab*/
@@ -324,18 +384,18 @@ body {
   display: flex;
   align-items: center; /* centers image + text vertically */
   gap: 60px;
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   flex-wrap: nowrap; /* keep side-by-side */
 }
 
 .local-story-wrapper-3 { 
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 3rem;                  /* space between image and text */
-  padding: 15px 5vw 10px;   /* use viewport padding so it scales */
-  max-width: 1400px;          /* increase total width */
+  padding: 18px 9vw 3px;   /* use viewport padding so it scales */
+  max-width: 1800px;          /* increase total width */
   margin: 0 auto;             /* center entire section in page */
   width: 100%;                /* let it take full available space */
   box-sizing: border-box;     /* makes padding not shrink width */
@@ -361,23 +421,7 @@ body {
   width: 450px;
   height: auto;
   display: block;
-  margin-top: 0.5rem !important; /*makes image and text align*/
-}
-
-/*bernard text*/
-.story-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.story-text h2 {
-  font-size: 2.45rem;
-  font-weight: bold;
-}
-
-.story-text p {
-  font-size: 1.5rem;
-  color: #2c2c2c;
+  margin-top: 0.7rem !important; /*makes image and text align*/
 }
 
 
@@ -1209,4 +1253,243 @@ main { display: block; }
 .resource-card:hover img {
   transform: scale(1.05);
   opacity: 0.9;
+}
+
+/* --------- calendar -----------*/
+
+/* ===Banner === */
+.calendar-banner {
+  position: relative;
+  width: 100%;
+  height: 220px; /* adjust to your liking */
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.calendar-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(80%);
+}
+
+.calendar-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-banner-overlay h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+/* === Calendar Scoped Styles === */
+.calendar-section {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+  font-family: 'Inter', sans-serif;
+  background: rgba(244, 241, 246, 0.819);
+  color: #333;
+}
+
+#calendar-title h1 {
+  font-size: 3.25rem;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #dcdcdc;
+  border: 1px solid #dcdcdc;
+  margin-top: 1.5rem;
+}
+
+.calendar-day {
+  background: #fff;
+  min-height: 100px;
+  position: relative;
+  padding: 5px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.calendar-day:hover {
+  background: #f4eaff;
+}
+
+.calendar-day.inactive {
+  color: #aaa;
+  background: #e7e5e5;
+}
+
+.calendar-date-number {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+/* === Event Row (dot + tag text) === */
+.calendar-event-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #444;
+  margin-top: 3px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.calendar-event-item:hover {
+  transform: translateX(2px);
+}
+
+/* Bigger dot */
+.calendar-event-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Tag text */
+.calendar-event-label {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  color:rgba(83, 82, 82, 0.916);
+  font-weight: 800;
+}
+
+/* Day cell layout */
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+  padding: 6px;
+}
+
+/* === Tag-based colors === */
+.calendar-dot-art { background: #f88cc0; }        /* pink */
+.calendar-dot-speech { background: #6ab7ff; }     /* light blue */
+.calendar-dot-support { background: #7bd88f; }    /* green */
+.calendar-dot-community { background: #ffd166; }  /* yellow */
+.calendar-dot-parkinsons { background: #a46bdc; } /* purple */
+.calendar-dot-default { background: #bcbcbc; }    /* fallback */
+
+
+/* === Modal === */
+.calendar-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.calendar-modal {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 11;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+.calendar-hidden {
+  display: none;
+}
+
+.calendar-close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+#calendar-modal-cta {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.calendar-modal-btn {
+  display: inline-block;
+  background: #6a4c93;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.calendar-modal-btn:hover {
+  background: #6a4c93;
+}
+
+/* === Month Navigation (perfect vertical centering) === */
+.calendar-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #44276c;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(4px); /* 👈 manually nudges arrows down */
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.calendar-nav-btn:hover {
+  transform: scale(1.2) translateY(4px);
+  color: #6a4c93;
+}
+
+#calendar-month-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #44276c;
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }

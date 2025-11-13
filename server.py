@@ -27,5 +27,9 @@ def research():
 def nutrition():
     return render_template("nutrition.html")  
 
+@app.route("/calendar")
+def calendar_page():
+    return render_template("calendar.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
