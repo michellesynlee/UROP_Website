@@ -5,23 +5,21 @@
     <img src="{{ url_for('static', filename='home-banner.png') }}" alt="Community Image" class="banner-img">
 
     <div class="blurb-box">
-        <!--<p><strong>Welcome! We are a community health hub for Washington Heights & Harlem, powered by your stories and lived experiences.</strong></p>-->
-        <p>
-          <strong>Welcome! We are a community brain health hub for Washington Heights & Harlem, powered by your stories and lived experiences.</strong>
-          <br><br>
-          Brain health conditions affect people in many different ways, and each journey is unique. 
-          Explore to see how community, care, and connection make a difference.
-        </p>
-      
-        <p class="get-started">
-          <strong>Get Started Here:</strong>
-          <select id="dropdown">
-            <option disabled selected>I have a question about...</option>
-            <option>Upcoming Events</option>
-            <option>Contact Information</option>
-            <option>Health & Wellness Resources</option>
-          </select>
-        </p>
+      <p>
+        <strong>Welcome! We are a community brain health hub for Washington Heights & Harlem, powered by your stories and lived experiences.</strong>
+        <br><br>
+        Brain health conditions affect people in many different ways, and each journey is unique. 
+        Explore to see how community, care, and connection make a difference.
+      </p>
+    
+      <p class="get-started">
+        <strong>Get Started Here:</strong>
+        <select id="dropdown">
+          <option disabled selected>I have a question about...</option>
+          <option value="calendar">Upcoming Events</option>
+          <option value="resources">Brain Health Resources</option>
+        </select>
+      </p>
     </div>
   </section>
 
@@ -105,6 +103,8 @@
         <button class="view-calendar-btn">View Calendar</button>
     </div>
     -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
   </div>
 
 {% endblock %}

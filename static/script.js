@@ -127,3 +127,20 @@ document.addEventListener('click', (e) => {
     document.getElementById('modal-overlay').style.display = 'none';
   }
 });
+
+/*makes the get started here work*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.getElementById("dropdown");
+
+  dropdown.addEventListener("change", () => {
+    const value = dropdown.value;
+
+    if (value === "calendar") {
+      window.location.href = "/calendar";      // change to your route
+    } 
+    else if (value === "resources") {
+      window.location.href = "/research";   // change to your route
+    }
+  });
+});

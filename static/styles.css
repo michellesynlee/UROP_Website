@@ -290,7 +290,7 @@ body {
   background: #e6dcf1;            /* very light purple, matches your theme */
   border-radius: 0px;            /* bubble shape */
   padding: 2rem 2.5rem;           /* inner spacing */
-  margin: 1.5rem 0 2rem;          /* spacing around bubble */
+  margin: 1.5rem 2 2rem;          /* spacing around bubble */
   box-shadow: 5 6px 18px rgba(0, 0, 0, 0.595);  /* soft shadow */
 }
 
@@ -325,22 +325,13 @@ body {
   margin-top: 0; /* remove the extra push-down */
 }
 
-.img-offset {
-  position: absolute;
-  top: 10px;
-  left: -15px;
-  width: 100%;
-  height: 100%;
-  background-color: #dad4ef; /* light purple */
-  z-index: 0;
-}
-
 .story-img {
   position: relative;
   z-index: 1;
-  width: 550px;
+  width: 500px;
   height: auto;
   display: block;
+  margin-bottom: 2rem;
 }
 
 /*bernard text*/
@@ -421,6 +412,7 @@ body {
   width: 450px;
   height: auto;
   display: block;
+  margin-bottom: 2rem;
   margin-top: 0.7rem !important; /*makes image and text align*/
 }
 
@@ -442,6 +434,69 @@ body {
     .story-text {
       width: 100%;
     }
+}
+
+/* ————————————————
+   RESPONSIVE FIXES 
+   ———————————————— */
+@media (max-width: 900px) {
+
+  /* --- GENERAL STORY BUBBLES --- */
+  .story-bubble,
+  .full-bubble {
+    padding: 1.5rem;
+    margin: 1.5rem 1rem;
+    width: auto;
+  }
+
+  /* --- LOCAL STORY (HOME PAGE COLEYS) --- */
+  .local-story-wrapper {
+    padding: 20px 20px;
+  }
+
+  .local-story {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .story-img {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+  }
+
+  .story-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .story-text p {
+    font-size: 1.1rem;
+  }
+
+
+  /* --- LOCAL STORY 3 (MOVEMENT TAB COLEYS) --- */
+  .local-story-wrapper-3 {
+    flex-direction: column;
+    padding: 20px 20px;
+    gap: 2rem;
+  }
+
+  .local-story-3 {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .story-img-3 {
+    width: 90%;
+    max-width: 330px;
+  }
+
+  .story-text-3 {
+    font-size: 1.2rem;
+    width: 100%;
+  }
 }
 
 /*events calendar section*/
@@ -1254,14 +1309,13 @@ main { display: block; }
   transform: scale(1.05);
   opacity: 0.9;
 }
-
-/* --------- calendar -----------*/
+/* ------------------------------- calendar ---------------------------------*/
 
 /* ===Banner === */
 .calendar-banner {
   position: relative;
   width: 100%;
-  height: 220px; /* adjust to your liking */
+  height: 220px;
   overflow: hidden;
   margin-bottom: 2rem;
 }
@@ -1294,17 +1348,17 @@ main { display: block; }
 
 /* === Calendar Scoped Styles === */
 .calendar-section {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 60px auto;
   text-align: center;
-  padding: 0 20px;
+  padding: 10 20px;
   font-family: 'Inter', sans-serif;
   background: rgba(244, 241, 246, 0.819);
   color: #333;
 }
 
 #calendar-title h1 {
-  font-size: 3.25rem;
+  font-size: 3.45rem;
   color: #000000;
   margin-bottom: 0.25rem;
 }
@@ -1326,6 +1380,10 @@ main { display: block; }
   text-align: left;
   cursor: pointer;
   transition: background 0.2s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .calendar-day:hover {
@@ -1338,7 +1396,7 @@ main { display: block; }
 }
 
 .calendar-date-number {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 900;
   margin-bottom: 5px;
 }
@@ -1359,41 +1417,30 @@ main { display: block; }
   transform: translateX(2px);
 }
 
-/* Bigger dot */
 .calendar-event-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  flex-shrink: 0;
 }
 
-/* Tag text */
 .calendar-event-label {
-  font-weight: 500;
+  font-weight: 800;
   text-transform: capitalize;
   font-size: 1.1rem;
-  color:rgba(83, 82, 82, 0.916);
-  font-weight: 800;
+  color: rgba(83, 82, 82, 0.916);
 }
 
-/* Day cell layout */
-.calendar-day {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 2px;
-  padding: 6px;
+.calendar-dot-default {
+  background: #bcbcbc;
 }
 
-/* === Tag-based colors === */
-.calendar-dot-art { background: #f88cc0; }        /* pink */
-.calendar-dot-speech { background: #6ab7ff; }     /* light blue */
-.calendar-dot-support { background: #7bd88f; }    /* green */
-.calendar-dot-community { background: #ffd166; }  /* yellow */
-.calendar-dot-parkinsons { background: #a46bdc; } /* purple */
-.calendar-dot-default { background: #bcbcbc; }    /* fallback */
-
+/* === RESTORE COLOR CODING === */
+.calendar-dot-art        { background: #f88cc0; }
+.calendar-dot-speech     { background: #6ab7ff; }
+.calendar-dot-support    { background: #7bd88f; }
+.calendar-dot-community  { background: #ffd166; }
+.calendar-dot-parkinsons { background: #a46bdc; }
+.calendar-dot-default    { background: #bcbcbc; }
 
 /* === Modal === */
 .calendar-overlay {
@@ -1433,11 +1480,6 @@ main { display: block; }
   color: #666;
 }
 
-#calendar-modal-cta {
-  margin-top: 12px;
-  text-align: left;
-}
-
 .calendar-modal-btn {
   display: inline-block;
   background: #6a4c93;
@@ -1446,50 +1488,120 @@ main { display: block; }
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 6px;
-  transition: background 0.2s ease;
 }
 
-.calendar-modal-btn:hover {
-  background: #6a4c93;
-}
+/* === Month Navigation === */
 
-/* === Month Navigation (perfect vertical centering) === */
 .calendar-header {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin-bottom: 6px;
+  display: flex;
+  align-items: center;        /* aligns arrows + title vertically */
+  justify-content: center;    /* keeps title centered */
+  position: relative;
   width: 100%;
+  margin-bottom: 6px;
 }
 
+/* Navigation arrows */
 .calendar-nav-btn {
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 2.2rem;          /* slightly larger for visual balance */
   color: #44276c;
   cursor: pointer;
-  padding: 0;
-  margin: 0;
-  height: 100%;
+  padding: 0 12px;
   display: flex;
-  align-items: center;
+  align-items: center;        /* vertically centered inside the header */
   justify-content: center;
-  transform: translateY(4px); /* 👈 manually nudges arrows down */
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .calendar-nav-btn:hover {
-  transform: scale(1.2) translateY(4px);
+  transform: scale(1.25);     /* subtle hover pop */
   color: #6a4c93;
 }
 
+/* Month title */
 #calendar-month-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
-  color: #44276c;
-  line-height: 1;
-  margin: 0;
+  color: #000;
+  margin: 0 18px;
+  line-height: 1;             /* prevents extra vertical spacing */
   display: flex;
-  align-items: center;
+  align-items: center;        /* ensures title aligns with arrows */
 }
+
+/* ------------------ WEEKLY VIEW (isolated) ------------------ */
+
+.weekly-mode.calendar-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0 20px;
+}
+
+.weekly-mode .calendar-week-day {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  min-height: 300px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.weekly-mode .week-event {
+  width: 80%;
+  padding: 10px 12px;
+  background: #f6f2ff;
+  border-left: 4px solid #6a4c93;
+  border-radius: 12px;
+  margin: 2px auto 0 auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.weekly-mode .week-event-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.weekly-mode .week-event-time {
+  font-size: 0.85rem;
+  color: #6c6c6c;
+}
+
+/* ------------------ WEEKLY VIEW BUTTON ------------------ */
+
+.calendar-week-btn {
+  padding: 8px 18px;
+  background: #6a4c93;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.calendar-week-btn:hover {
+  background: #8a6bc0;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Make sure button stays visible on small screens */
+@media (max-width: 600px) {
+  .calendar-week-btn {
+    font-size: 0.85rem;
+    padding: 7px 14px;
+    right: 10px;
+  }
+}
+

@@ -7,17 +7,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   const modal = document.getElementById("calendar-event-modal");
   const closeBtn = document.querySelector(".calendar-close-modal");
 
-  /* ---------------- LOAD EVENTS ---------------- */
+  // ---- Load events ----
   let events = [];
   try {
     const res = await fetch("/static/events.json", { cache: "no-cache" });
     events = await res.json();
+    console.log("✅ Loaded events:", events);
   } catch (err) {
-    console.error("Failed to load events.json", err);
+    console.error("❌ Failed to load events.json", err);
   }
 
   const weekdays = { SU: 0, MO: 1, TU: 2, WE: 3, TH: 4, FR: 5, SA: 6 };
 
+  // ---- Helpers ----
   const nthWeekday = (year, month, n, weekday) => {
     const first = new Date(year, month, 1);
     const offset = (7 + weekdays[weekday] - first.getDay()) % 7;
@@ -32,6 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return d;
   };
 
+  // --- Get Monday of the week for any date ---
   const getMonday = (date) => {
     const d = new Date(date);
     const day = d.getDay();
@@ -52,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return expanded;
     }
 
-    if (recurrence.type === "weekly") {
+    if (recurrence.type === "weekly" && Array.isArray(recurrence.days)) {
       let cursor = new Date(now);
       while (cursor <= end) {
         recurrence.days.forEach((day) => {
@@ -66,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return expanded;
     }
 
-    if (recurrence.type === "monthly") {
+    if (recurrence.type === "monthly" && recurrence.weekday) {
       const map = { first: 1, second: 2, third: 3, fourth: 4 };
       const whichList = Array.isArray(recurrence.which)
         ? recurrence.which
@@ -76,13 +79,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       for (let i = 0; i < 6; i++) {
         whichList.forEach((which) => {
+          if (!which) return;
           let d;
           if (which === "last") d = lastWeekday(y, m, recurrence.weekday);
           else d = nthWeekday(y, m, map[which] || 1, recurrence.weekday);
           if (d && d >= now && d <= end) expanded.push(d);
         });
         m++;
-        if (m > 11) { m = 0; y++; }
+        if (m > 11) {
+          m = 0;
+          y++;
+        }
       }
       return expanded;
     }
@@ -94,11 +101,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     const dates = expandEventDates(evt);
     return dates.map((d) => ({
       ...evt,
-      dateKey: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
+      dateKey: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(
+        2,
+        "0"
+      )}-${String(d.getDate()).padStart(2, "0")}`,
     }));
   });
 
-  /* ---------------- STATE ---------------- */
+  console.log("📅 Expanded events:", expandedEvents);
+
+  // --- Weekly view state ---
   let isWeeklyView = false;
   let currentWeekStart = null;
 
@@ -106,30 +118,43 @@ document.addEventListener("DOMContentLoaded", async () => {
   let currentMonth = today.getMonth();
   let currentYear = today.getFullYear();
 
+  
   const getMonthName = (month) =>
     new Date(2000, month, 1).toLocaleString("default", { month: "long" });
 
   const getEventsForDate = (dateString) =>
     expandedEvents.filter((e) => e.dateKey === dateString);
 
-  /* ---------------- MODAL ---------------- */
+  // ---- Modal ----
   const openModal = (evt) => {
     document.getElementById("calendar-modal-title").textContent = evt.title;
-    document.getElementById("calendar-modal-summary").textContent = evt.summary || "";
+    document.getElementById("calendar-modal-summary").textContent =
+      evt.summary || "";
 
     const formatTime = (timeStr) => {
       if (!timeStr) return "";
-      const [h, m] = timeStr.split(":");
-      const d = new Date();
-      d.setHours(h, m);
-      return d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", hour12: true });
+      const [h, m] = timeStr.split(":").map(Number);
+      const date = new Date();
+      date.setHours(h, m);
+      return date.toLocaleTimeString([], {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      });
     };
 
     const timeEl = document.getElementById("calendar-modal-time");
-    timeEl.textContent = evt.time?.start ? formatTime(evt.time.start) : "";
+    timeEl.textContent =
+      evt.time?.start && evt.time?.end
+        ? `${formatTime(evt.time.start)} – ${formatTime(evt.time.end)}`
+        : evt.time?.start
+        ? formatTime(evt.time.start)
+        : "";
 
-    document.getElementById("calendar-modal-location").innerHTML = evt.location?.name || "";
-    document.getElementById("calendar-modal-note").textContent = evt.registration?.note || "";
+    const locationEl = document.getElementById("calendar-modal-location");
+    locationEl.innerHTML = evt.location?.name || "";
+    document.getElementById("calendar-modal-note").textContent =
+      evt.registration?.note || "";
 
     const ctaContainer = document.getElementById("calendar-modal-cta");
     ctaContainer.innerHTML = "";
@@ -138,6 +163,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       btn.href = evt.cta.href;
       btn.textContent = evt.cta.label || "Learn More";
       btn.target = "_blank";
+      btn.rel = "noopener noreferrer";
       btn.className = "calendar-modal-btn";
       ctaContainer.appendChild(btn);
     }
@@ -150,15 +176,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     overlay.classList.add("calendar-hidden");
     modal.classList.add("calendar-hidden");
   };
-
   overlay.addEventListener("click", closeModal);
   closeBtn.addEventListener("click", closeModal);
 
-  /* ---------------- MONTH VIEW ---------------- */
+  // ---- Render Calendar ----
   const renderCalendar = (month, year) => {
-    calendarEl.className = "calendar-grid";     // ← RESET LAYOUT  
     calendarEl.innerHTML = "";
-
     monthTitle.textContent = `${getMonthName(month)} ${year}`;
 
     const firstDay = new Date(year, month, 1);
@@ -172,52 +195,45 @@ document.addEventListener("DOMContentLoaded", async () => {
     for (let i = startDay - 1; i >= 0; i--) {
       cells.push({ num: prevMonthDays - i, inactive: true });
     }
-    for (let d = 1; d <= daysInMonth; d++) {
-      cells.push({ num: d, inactive: false });
-    }
-    while (cells.length < totalCells) {
+    for (let d = 1; d <= daysInMonth; d++) cells.push({ num: d, inactive: false });
+    while (cells.length < totalCells)
       cells.push({ num: cells.length - daysInMonth - startDay + 1, inactive: true });
-    }
 
     cells.forEach((cell) => {
       const cellEl = document.createElement("div");
       cellEl.className = "calendar-day";
       if (cell.inactive) cellEl.classList.add("inactive");
-
       cellEl.innerHTML = `<div class="calendar-date-number">${cell.num}</div>`;
 
-      const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(cell.num).padStart(2, "0")}`;
-      const dayEvents = getEventsForDate(dateKey);
-
       if (!cell.inactive) {
+        const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(
+          cell.num
+        ).padStart(2, "0")}`;
+        const dayEvents = getEventsForDate(dateKey);
+
         dayEvents.forEach((evt) => {
+          const tags = (evt.tags || []).map((t) => t.toLowerCase());
+          let colorClass = "calendar-dot-default";
+          if (tags.includes("art")) colorClass = "calendar-dot-art";
+          else if (tags.includes("speech")) colorClass = "calendar-dot-speech";
+          else if (tags.includes("support")) colorClass = "calendar-dot-support";
+          else if (tags.includes("community")) colorClass = "calendar-dot-community";
+          else if (tags.includes("parkinson’s") || tags.includes("parkinsons"))
+            colorClass = "calendar-dot-parkinsons";
+
           const eventItem = document.createElement("div");
-          eventItem.className = "calendar-event-item";
-          eventItem.onclick = (e) => {
+          eventItem.classList.add("calendar-event-item");
+          eventItem.addEventListener("click", (e) => {
             e.stopPropagation();
             openModal(evt);
-          };
+          });
 
-          /* --- DOT ELEMENT --- */
-        const dot = document.createElement("span");
-        dot.classList.add("calendar-event-dot");
-
-        /* --- ORIGINAL COLOR TAG LOGIC (restored) --- */
-        const tags = (evt.tags || []).map(t => t.toLowerCase());
-        let colorClass = "calendar-dot-default";
-
-        if (tags.includes("art")) colorClass = "calendar-dot-art";
-        else if (tags.includes("speech")) colorClass = "calendar-dot-speech";
-        else if (tags.includes("support")) colorClass = "calendar-dot-support";
-        else if (tags.includes("community")) colorClass = "calendar-dot-community";
-        else if (tags.includes("parkinson’s") || tags.includes("parkinsons"))
-        colorClass = "calendar-dot-parkinsons";
-
-        dot.classList.add(colorClass);
+          const dot = document.createElement("span");
+          dot.classList.add("calendar-event-dot", colorClass);
 
           const label = document.createElement("span");
           label.classList.add("calendar-event-label");
-          label.textContent = evt.shortLabel || evt.title;
+          label.textContent = evt.shortLabel || evt.tags?.[0] || evt.title || "Event";
 
           eventItem.appendChild(dot);
           eventItem.appendChild(label);
@@ -229,68 +245,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  /* ---------------- WEEKLY VIEW ---------------- */
-  const renderWeeklyView = () => {
-    calendarEl.className = "calendar-week-grid weekly-mode";
-    calendarEl.innerHTML = "";
+  // === INITIAL RENDER ===
+  renderCalendar(currentMonth, currentYear);
 
-    const week = [];
-    const start = currentWeekStart;
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(start);
-      d.setDate(start.getDate() + i);
-      week.push(d);
-    }
-
-    monthTitle.textContent =
-      `Week of ${start.toLocaleDateString("en-US", { month: "long", day: "numeric" })}`;
-
-    week.forEach((dateObj) => {
-      const dateKey =
-        `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, "0")}-${String(dateObj.getDate()).padStart(2, "0")}`;
-      const dayEvents = getEventsForDate(dateKey);
-
-      const cell = document.createElement("div");
-      cell.className = "calendar-week-day";
-
-      cell.innerHTML = `<div class="calendar-date-number">${dateObj.getDate()}</div>`;
-
-      dayEvents.forEach((evt) => {
-        const card = document.createElement("div");
-        card.className = "week-event";
-        card.onclick = (e) => {
-          e.stopPropagation();
-          openModal(evt);
-        };
-
-        const title = document.createElement("div");
-        title.className = "week-event-title";
-        title.textContent = evt.title;
-
-        const time = document.createElement("div");
-        time.className = "week-event-time";
-
-        if (evt.time?.start) {
-          const [h, m] = evt.time.start.split(":");
-          const d = new Date();
-          d.setHours(h, m);
-          time.textContent = d.toLocaleTimeString([], {
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: true
-          });
-        }
-
-        card.appendChild(title);
-        card.appendChild(time);
-        cell.appendChild(card);
-      });
-
-      calendarEl.appendChild(cell);
-    });
-  };
-
-  /* ---------------- WEEKLY TOGGLE ---------------- */
+  // --- WEEKLY VIEW TOGGLE ---
   document.getElementById("calendar-weekly-toggle").addEventListener("click", () => {
     if (!isWeeklyView) {
       isWeeklyView = true;
@@ -303,8 +261,74 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("calendar-weekly-toggle").textContent = "Weekly View";
     }
   });
+  
+  // --- WEEKLY VIEW RENDERER ---
+  const renderWeeklyView = () => {
+    calendarEl.innerHTML = "";
+    calendarEl.className = "calendar-week-grid";
 
-  /* ---------------- NAVIGATION ---------------- */
+    const week = [];
+    const start = currentWeekStart;
+
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(start);
+      d.setDate(start.getDate() + i);
+      week.push(d);
+    }
+
+    const end = week[6];
+    monthTitle.textContent =
+      `Week of ${start.toLocaleDateString("en-US", { month: "long", day: "numeric" })}`;
+
+    week.forEach((dateObj) => {
+      const dateKey = `${dateObj.getFullYear()}-${String(dateObj.getMonth()+1).padStart(2,"0")}-${String(dateObj.getDate()).padStart(2,"0")}`;
+      const dayEvents = getEventsForDate(dateKey);
+
+      const cell = document.createElement("div");
+      cell.className = "calendar-week-day";
+
+      cell.innerHTML = `
+        <div class="calendar-date-number">${dateObj.getDate()}</div>
+      `;
+
+      dayEvents.forEach(evt => {
+        const card = document.createElement("div");
+        card.className = "week-event";
+        card.onclick = (e) => {
+          e.stopPropagation();
+          openModal(evt);   // opens your existing modal
+        };
+
+        const title = document.createElement("div");
+        title.className = "week-event-title";
+        title.textContent = evt.title;
+
+        const timeDisplay = document.createElement("div");
+        timeDisplay.className = "week-event-time";
+
+        if (evt.time?.start) {
+          const [h, m] = evt.time.start.split(":").map(Number);
+          const d = new Date();
+          d.setHours(h, m);
+          timeDisplay.textContent = d.toLocaleTimeString([], {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          });
+        } else {
+          timeDisplay.textContent = "";
+        }
+
+        card.appendChild(title);
+        card.appendChild(timeDisplay);
+        cell.appendChild(card);
+      });
+
+      calendarEl.appendChild(cell);
+    });
+  };
+
+  // === MONTH NAVIGATION ===
   nextBtn.addEventListener("click", () => {
     if (isWeeklyView) {
       currentWeekStart.setDate(currentWeekStart.getDate() + 7);
@@ -327,6 +351,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  /* ---------------- FIRST RENDER ---------------- */
-  renderCalendar(currentMonth, currentYear);
+
 });
