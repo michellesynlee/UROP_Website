@@ -18,10 +18,49 @@
       <h1 class="page-title">Connecting Through Movement</h1>
         <p class="subtitle">
             Guides, research, and resources to help you stay active and connected!
-            <br>Explore resources in this section:</span>
         </p>
 
+      <!-- features event-->
+
+      <h1 class="section-subtitle"> Featured Event: </h1>
+
+      <!-- Featured Event-->
+      <section class="featured-event">
+        <div class="featured-event__inner">
+          <!-- Left side: image -->
+          <div class="featured-event__image-wrapper">
+            <a 
+              href="{{ url_for('static', filename='flyer.png') }}" 
+              download="Physical_Activity_Flyer.png"
+            >
+              <img 
+                src="{{ url_for('static', filename='flyer.png') }}" 
+                alt="Flyer for the free physical activity coaching" 
+                class="featured-event__image"
+              >
+            </a>
+          </div>
+
+          <!-- Right side: content -->
+          <div class="featured-event__content">
+            <h2 class="featured-event__title">Promoting Physical Activity in People with Parkinson’s Disease</h2>
+            <p class="featured-event__description">
+              Free Physical Activity Coaching! This new program is community focused and we are prioritizing people who live in 
+              <strong>Washington Heights</strong> and <strong>Harlem</strong> as well as other local underserved communities.
+               The intervention will be delivered by members of our lab as well as community health workers. 
+               <br> <br>
+               <strong>Interested? </strong> Please contact <strong>neurorehablab@tc.columbia.edu</strong> to learn more + register using the email button below.
+            </p>
+            <br>
+            <a class="resource-btn featured-event__btn" href="mailto:neurorehablab@tc.columbia.edu" target="_blank">
+              Email
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- BUBBLES -->
+      <h1 class="section-subtitle"> Explore Questions: </h1>
 
       <div class="bubble-stage" id="bubbleStage" aria-label="Explore topics">
         <!-- Left small -->

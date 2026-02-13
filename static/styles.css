@@ -74,7 +74,29 @@ body {
       display: none;
     }
 }
-  
+
+.calendar-wrapper {
+  position: relative;
+}
+
+.calendar-icon {
+  z-index: 100;
+  position: absolute;
+  right: 15px;
+  transform: translateY(-40%);
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+}
+
+.calendar-link {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
 /* Bottom navbar row */
 .bottom-row {
     background-color: #6a4c93;
@@ -134,12 +156,12 @@ body {
 
 .footer-left {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
 }
 
 .footer-logo-img {
-  height: 95px;
+  height: 90px;
   flex-shrink: 0;
 }
 
@@ -1532,6 +1554,20 @@ main { display: block; }
 }
 
 /* ------------------ WEEKLY VIEW (isolated) ------------------ */
+
+.calendar-weekday-labels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  max-width: 1200px;
+  margin: 0 auto 12px auto;
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
 
 .weekly-mode.calendar-week-grid {
   display: grid;

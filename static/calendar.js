@@ -231,64 +231,99 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   /* ---------------- WEEKLY VIEW ---------------- */
   const renderWeeklyView = () => {
+    // Reset grid to weekly mode
     calendarEl.className = "calendar-week-grid weekly-mode";
     calendarEl.innerHTML = "";
 
+    /* ----------------------------------------------------------
+        WEEKDAY LABELS (Mon–Sun)
+    ---------------------------------------------------------- */
+    const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+    // Reuse the label row if it exists, or create it once
+    let labelRow = document.getElementById("calendar-weekday-labels");
+    if (!labelRow) {
+        labelRow = document.createElement("div");
+        labelRow.id = "calendar-weekday-labels";
+        labelRow.className = "calendar-weekday-labels";
+        // Insert above the weekly grid
+        calendarEl.insertAdjacentElement("beforebegin", labelRow);
+    }
+
+    // Fill label row with weekday names
+    labelRow.innerHTML = "";
+    labels.forEach(day => {
+        const el = document.createElement("div");
+        el.textContent = day;
+        labelRow.appendChild(el);
+    });
+
+    /* ----------------------------------------------------------
+        Determine the week range
+    ---------------------------------------------------------- */
     const week = [];
     const start = currentWeekStart;
+
     for (let i = 0; i < 7; i++) {
-      const d = new Date(start);
-      d.setDate(start.getDate() + i);
-      week.push(d);
+        const d = new Date(start);
+        d.setDate(start.getDate() + i);
+        week.push(d);
     }
 
     monthTitle.textContent =
-      `Week of ${start.toLocaleDateString("en-US", { month: "long", day: "numeric" })}`;
+        `Week of ${start.toLocaleDateString("en-US", { month: "long", day: "numeric" })}`;
 
+    /* ----------------------------------------------------------
+        Build weekly day cards
+    ---------------------------------------------------------- */
     week.forEach((dateObj) => {
-      const dateKey =
-        `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, "0")}-${String(dateObj.getDate()).padStart(2, "0")}`;
-      const dayEvents = getEventsForDate(dateKey);
+            const dateKey =
+            `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, "0")}-${String(dateObj.getDate()).padStart(2, "0")}`;
 
-      const cell = document.createElement("div");
-      cell.className = "calendar-week-day";
+            const dayEvents = getEventsForDate(dateKey);
 
-      cell.innerHTML = `<div class="calendar-date-number">${dateObj.getDate()}</div>`;
+            const cell = document.createElement("div");
+            cell.className = "calendar-week-day";
 
-      dayEvents.forEach((evt) => {
-        const card = document.createElement("div");
-        card.className = "week-event";
-        card.onclick = (e) => {
-          e.stopPropagation();
-          openModal(evt);
-        };
+            // Day number
+            cell.innerHTML = `<div class="calendar-date-number">${dateObj.getDate()}</div>`;
 
-        const title = document.createElement("div");
-        title.className = "week-event-title";
-        title.textContent = evt.title;
+            // Add events for that day
+            dayEvents.forEach((evt) => {
+            const card = document.createElement("div");
+            card.className = "week-event";
+            card.onclick = (e) => {
+                e.stopPropagation();
+                openModal(evt);
+            };
 
-        const time = document.createElement("div");
-        time.className = "week-event-time";
+            const title = document.createElement("div");
+            title.className = "week-event-title";
+            title.textContent = evt.title;
 
-        if (evt.time?.start) {
-          const [h, m] = evt.time.start.split(":");
-          const d = new Date();
-          d.setHours(h, m);
-          time.textContent = d.toLocaleTimeString([], {
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: true
-          });
-        }
+            const time = document.createElement("div");
+            time.className = "week-event-time";
 
-        card.appendChild(title);
-        card.appendChild(time);
-        cell.appendChild(card);
-      });
+            if (evt.time?.start) {
+                const [h, m] = evt.time.start.split(":");
+                const d = new Date();
+                d.setHours(h, m);
+                time.textContent = d.toLocaleTimeString([], {
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+                });
+            }
 
-      calendarEl.appendChild(cell);
-    });
-  };
+            card.appendChild(title);
+            card.appendChild(time);
+            cell.appendChild(card);
+            });
+
+            calendarEl.appendChild(cell);
+        });
+    };
+
 
   /* ---------------- WEEKLY TOGGLE ---------------- */
   document.getElementById("calendar-weekly-toggle").addEventListener("click", () => {

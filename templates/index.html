@@ -21,10 +21,22 @@
         </div>
       </a>
 
+      <!--
       <div class="search-wrapper">
         <input type="text" placeholder="" />
-        <img src="static/searchicon.png" alt="Search" class="search-icon" />
+        <img src="static/calendar-icon.jpg" alt="Calendar" class="calendar-icon" />
       </div>
+      -->
+      <div class="calendar-wrapper">
+        <a href="{{ url_for('calendar_page') }}" class="calendar-link">
+          <img 
+            src="{{ url_for('static', filename='calendar-icon.jpg') }}" 
+            alt="Calendar" 
+            class="calendar-icon"
+          >
+        </a>
+      </div>
+    
     </div>
 
     <nav class="bottom-row">
@@ -62,9 +74,13 @@
       <div class="footer-left">
         <img src="{{ url_for('static', filename='logo.png') }}" alt="Footer Logo" class="footer-logo-img" />
         <div class="footer-contact">
-          <p><strong>Contact Us</strong></p>
-          <p>Email: <a href="mailto:info@communitymovers.org">info@communitymovers.org</a></p>
-          <p>Phone: (123) 456-7890</p>
+          <p><strong>Contact Us</strong></p> 
+          <p>Community Movers: <strong>(914) 315-9036</strong></p>
+          <br>
+          <p><strong>Other Resources</strong></p>    
+          <p>Columbia Patient Safety Email: <a href="mailto:cdsafety@cumc.columbia.edu">cdsafety@cumc.columbia.edu</a></p>
+          <p>Patient Safety Phone: <strong>(212) 305-8548</strong></p>
+          <p>General Information / Find a Doctor: <strong>(877) 426-5637</strong></p>
         </div>
       </div>
 
