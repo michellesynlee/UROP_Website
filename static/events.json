@@ -1,36 +1,38 @@
 [
   {
-    "id": "connecting-through-art",
-    "title": "Connecting Through Art (APDA x Columbia)",
-    "shortLabel": "Art Group",
-    "summary": "Monthly creative arts group for people impacted by Parkinson’s disease. No experience required; supplies provided.",
-    "description": "Each month explores a different medium—watercolor, acrylics, weaving, sculpture, collage, and more. The program supports mood, connection, and fine motor/visual-cognitive skills.",
-    "recurrence": {
-      "type": "monthly",
-      "which": "last",
-      "weekday": "FR"
-    },
+    "id": "connecting-through-art-february",
+    "title": "Connecting Through Art",
+    "shortLabel": "Art Program",
+    "summary": "Free creative arts program for people living with Parkinson’s and their families.",
+    "description": "Join us for a free creative arts session led by Dr. Rongyi Sun. Participants will create abstract art in a welcoming and supportive environment. Open to people living with Parkinson’s, care partners, children, and grandchildren. No prior art experience required.",
+    "date": "2026-02-23",
     "time": {
-      "start": "12:00",
-      "end": "16:00",
+      "start": "14:00",
+      "end": "15:30",
       "timezone": "America/New_York"
     },
     "location": {
-      "mode": "In-person & Virtual",
-      "name": "Columbia Community Partnership for Health",
-      "address": "390 Ft. Washington Ave (between 177th & 178th St), New York, NY"
+      "mode": "In-person or Virtual",
+      "name": "TBD"
+    },
+    "eligibility": {
+      "requirements": [
+        "People living with Parkinson’s",
+        "Care partners",
+        "Children and grandchildren"
+      ]
     },
     "registration": {
-      "phone": "929-695-0282",
       "contactName": "Erika Adelman",
-      "email": "era2142@cumc.columbia.edu",
-      "note": "Zoom link provided upon registration. Space is limited."
+      "phone": "929-695-0282",
+      "deadline": "2026-02-09",
+      "note": "Please register by Monday, February 9."
     },
     "cta": {
-      "label": "Register via Email",
-      "href": "mailto:era2142@cumc.columbia.edu"
+      "label": "Register by Phone",
+      "href": "tel:9296950282"
     },
-    "tags": ["Parkinson’s", "Art", "Community", "Recurring"]
+    "tags": ["Parkinson’s", "Art", "Family", "Special Event"]
   },
   {
     "id": "neurology-grief-support",
@@ -137,5 +139,172 @@
     "color": "#a46bdc",
     "textColor": "#fff",
     "tags": ["Parkinson’s", "Support", "Recurring"]
+  },
+  {
+    "id": "care-partners-support-group",
+    "title": "Parkinson's Care Partners Support Group",
+    "shortLabel": "Care Partners",
+    "summary": "Monthly support group dedicated to care partners of people living with Parkinson’s disease.",
+    "description": "A supportive space for care partners to connect, share experiences, and receive guidance. This group is exclusively for care partners and meets monthly.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "first",
+      "weekday": "WE"
+    },
+    "time": {
+      "start": "14:00",
+      "end": "15:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual",
+      "name": "Virtual (Zoom)"
+    },
+    "eligibility": {
+      "requirements": ["Care partners only"]
+    },
+    "cta": {
+      "label": "Register",
+      "href": "https://columbiacuimc.zoom.us/meeting/register/tJEuduutrD0sGNQF9OWzONfz-rbSObb8RhcU?utm_source=chatgpt.com#/"
+    },
+    "tags": ["Parkinson’s", "Care Partners", "Support", "Recurring"]
+  },
+  {
+    "id": "more-than-medicine-info-session",
+    "title": "More than Medicine Informational Session",
+    "shortLabel": "Advanced Treatment",
+    "summary": "Quarterly informational session about advanced Parkinson’s treatment options, including DBS.",
+    "description": "Formerly known as the DBS Informational Session, this program provides education on advanced treatment options for Parkinson’s disease. Open to anyone interested in learning more.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "first",
+      "weekday": "FR",
+      "intervalMonths": 3
+    },
+    "time": {
+      "start": "13:00",
+      "end": "14:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual",
+      "name": "Virtual (Zoom)"
+    },
+    "cta": {
+      "label": "Register",
+      "href": "https://columbiacuimc.zoom.us/meeting/register/PxdfiU0bQ72jnGU4QtPJkA#/"
+    },
+    "tags": ["Parkinson’s", "Education", "Advanced Treatment", "Recurring"]
+  },
+  {
+    "id": "access-to-care-orientation",
+    "title": "Access to Care Orientation",
+    "shortLabel": "Access to Care",
+    "summary": "Monthly orientation covering transportation, Medicaid, advance care planning, and more.",
+    "description": "Learn about transportation resources, Medicaid enrollment, advance care planning, homecare eligibility, work accommodations, SSD/SSI, and additional support services for people living with Parkinson’s and care partners.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "second",
+      "weekday": "WE"
+    },
+    "time": {
+      "start": "13:00",
+      "end": "14:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual",
+      "name": "Zoom (Meeting ID: 940 0339 0729)"
+    },
+    "cta": {
+      "label": "Join via Zoom",
+      "href": "https://columbiacuimc.zoom.us/j/94003390729?utm_source=chatgpt.com#success"
+    },
+    "tags": ["Parkinson’s", "Resources", "Education", "Recurring"]
+  },
+  {
+    "id": "dbs-support-group",
+    "title": "Deep Brain Stimulation Support Group",
+    "shortLabel": "DBS",
+    "summary": "Monthly support group for individuals who have undergone DBS surgery and their care partners.",
+    "description": "A support group for people living with Parkinson’s who have already had Deep Brain Stimulation (DBS) surgery and their care partners. Provides a space to share experiences and receive peer support.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "third",
+      "weekday": "WE"
+    },
+    "time": {
+      "start": "14:00",
+      "end": "15:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual",
+      "name": "Virtual (Zoom)"
+    },
+    "cta": {
+      "label": "Register",
+      "href": "https://columbiacuimc.zoom.us/meeting/register/K-oqg6PlRxGJZbW6ZfT82g#/registration"
+    },
+    "tags": ["Parkinson’s", "DBS", "Support", "Recurring"]
+  },
+  {
+    "id": "caregivers-support-sephardic",
+    "title": "Caregivers Support Group (Sephardic Community Center)",
+    "shortLabel": "Caregivers (SCC)",
+    "summary": "Monthly caregiver support group hosted in partnership with the Sephardic Community Center.",
+    "description": "Support group for care partners of individuals living with Parkinson’s disease. Meets monthly in partnership with the Sephardic Community Center.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "second",
+      "weekday": "WE"
+    },
+    "time": {
+      "start": "19:00",
+      "end": "20:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "In-person or Hybrid",
+      "name": "Sephardic Community Center"
+    },
+    "eligibility": {
+      "requirements": ["Care partners only"]
+    },
+    "contact": {
+      "name": "Aimee Mishaan",
+      "phone": "718-954-3157"
+    },
+    "cta": {
+      "label": "Register by Phone",
+      "href": "tel:7189543157"
+    },
+    "tags": ["Parkinson’s", "Caregivers", "Support", "Community", "Recurring"]
+  },
+  {
+    "id": "senior-helpers-support-group",
+    "title": "Parkinson’s Disease Support Group (Senior Helpers NYC)",
+    "shortLabel": "Senior Helpers",
+    "summary": "Monthly Parkinson’s support group hosted in partnership with Senior Helpers NYC.",
+    "description": "Support group for people living with Parkinson’s and their care partners, held in partnership with Senior Helpers NYC.",
+    "recurrence": {
+      "type": "monthly",
+      "which": "fourth",
+      "weekday": "WE"
+    },
+    "time": {
+      "start": "19:00",
+      "end": "20:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "mode": "Virtual or In-person",
+      "name": "Senior Helpers NYC"
+    },
+    "cta": {
+      "label": "Register",
+      "href": ""
+    },
+    "tags": ["Parkinson’s", "Support", "Community", "Recurring"]
   }
 ]
